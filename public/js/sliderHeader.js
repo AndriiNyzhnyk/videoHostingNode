@@ -28,7 +28,7 @@ window.onload = function () {
 // setTimeout(slider, 7000);
 
     function shiftLeft() {
-        items[i].style.marginLeft = `${-sliderWidth - 4}px`;
+        items[i].style.marginLeft = `${-sliderWidth - 5}px`;
         i++;
         if(i >= sliderLength) {
             trust = false;
@@ -37,7 +37,7 @@ window.onload = function () {
     }
 
     function shiftRight() {
-        items[i].style.marginLeft = `${sliderWidth - 4}px`;
+        items[i].style.marginLeft = `${sliderWidth - 5}px`;
         i--;
 
         if(i === 0) {

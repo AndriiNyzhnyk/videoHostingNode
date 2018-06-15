@@ -25,7 +25,7 @@ body {
 
 #search input {
     width: 350px;
-    height: 35px;
+    height: 30px;
 }
 
 header {
@@ -43,6 +43,7 @@ header {
     /*background: white;*/
     text-align: center;
 }
+
 header a {
     text-decoration: none;
     outline: none;
@@ -55,11 +56,13 @@ nav {
     margin: 0 auto;
     background: #182531;
 }
+
 nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
+
 /*.topmenu {*/
 /*width: 1000px;*/
 /*text-align: center;*/
@@ -70,23 +73,28 @@ nav ul {
     /*display: table;*/
     clear: both;
 }
+
 .topmenu > li {
     /*width: 16%;*/
     /*width: 250px;*/
     float: left;
     position: relative;
-    font-family: 'Open Sans', sans-serif;
+    /*font-family: 'Open Sans', sans-serif;*/
+    font-family: 'Exo 2', sans-serif;
 }
+
 .topmenu > li > a {
     text-transform: uppercase;
     font-size: 14px;
     font-weight: bold;
     /*color: #404040;*/
-    color: grey;
-    padding: 15px 25px;
+    /*color: grey;*/
+    color: #D5D5D5;
+    padding: 15px 35px;
     /*width: 220px;*/
 }
 .topmenu li a:hover { color: white; }
+
 .submenu-link:after {
     /*content: "\f107";*/
     font-family: "FontAwesome";
@@ -94,6 +102,7 @@ nav ul {
     /*color: yellow;*/
     margin-left: 10px;
 }
+
 .submenu {
     background: #273037;
     position: absolute;
@@ -106,6 +115,7 @@ nav ul {
     transform-origin: 0 0;
     transition: .5s ease-in-out;
 }
+
 .submenu a {
     color: white;
     text-align: left;
@@ -119,6 +129,7 @@ nav ul {
 }
 
 .submenu li:last-child a { border-bottom: none; }
+
 .topmenu > li:hover .submenu {
     opacity: 1;
     transform: scaleY(1);
@@ -126,12 +137,34 @@ nav ul {
 /*end style for top menu*/
 
 /*style for slide best films*/
+#bestFilm {
+    background-color: #182531;
+    display: block;
+    width: 1120px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#titleBestFilms h1 {
+    color: white;
+    font-size: 1.5em;
+    text-align: left;
+    margin: 20px;
+    font-family: 'Exo 2', sans-serif;
+    padding: 10px;
+}
+.nameFilmsSlider {
+    color: #FFFFFF;
+    background-color: #091018;
+    padding: 10px 5px;
+    margin-top: -5px;
+}
 
 #sliderMonitor {
     text-align: left;
-    border: 1px solid black;
-    box-sizing: border-box;
-    height: 300px;
+    /*border: 1px solid black;*/
+    /*box-sizing: border-box;*/
+    height: 380px;
     padding: 0;
     overflow: hidden;
     margin: 0 auto;
@@ -140,7 +173,7 @@ nav ul {
 #visibleWindow {
     width: 2500px;
     padding: 0;
-    height: 300px;
+    height: 380px;
 }
 
 .slider {
@@ -150,8 +183,8 @@ nav ul {
 }
 
 .slider img {
-    width: 200px;
-    height: 300px;
+    width: 185px;
+    height: 275px;
     margin: 0;
     padding: 0;
 }
@@ -159,23 +192,27 @@ nav ul {
 .items {
     display: inline-block;
     margin: 0;
-    padding: 0;
+    padding: 10px 0;
     transition: 1.3s;
     /*background-color: white;*/
+    background-color: #041D28;
 }
 
-#shiftSliderBlock {
-    background-color: aquamarine;
-    padding: 10px;
-    margin: 50px;
-    width: 300px;
-    text-align: center;
-}
-
-#shiftSliderBlock div {
-    width: 80px;
-    height: 50px;
+.shiftSlider {
+    position: absolute;
     background-color: red;
-    display: inline-block;
+    padding: 5px 0;
+    width: 20px;
+    height: 20px;
+}
+
+#shiftLeft {
+    top: 50%;
+    left: 10px;
+}
+
+#shiftRight {
+    top: 50%;
+    right: 10px;
 }
 /*end style for slide best films*/
