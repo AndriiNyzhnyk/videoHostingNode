@@ -222,3 +222,25 @@ nav ul {
     right: 10px;
 }
 /*end style for slide best films*/
+
+/*style for infoBlock*/
+#infoBlock {
+    width: 1100px;
+    padding: 10px;
+    margin: 0 auto;
+    font-family: 'Exo 2', sans-serif;
+}
+
+#titleInfoBlock {
+    background-color: #182531;
+    color: white;
+    padding: 1px 15px;
+}
+
+#textInfoBlock {
+    background-color: #0C151D;
+    color: white;
+    padding: 5px 15px;
+    text-align: justify;
+}
+/*end style for infoBlock */
