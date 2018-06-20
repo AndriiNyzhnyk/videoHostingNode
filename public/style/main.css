@@ -8,6 +8,10 @@ body {
     clear: both;
 }
 
+a {
+    text-decoration: none;
+}
+
 #topHeader {
     width: 100%;
     min-height: 40px;
@@ -26,11 +30,12 @@ body {
 #search input {
     width: 350px;
     height: 30px;
+    border-radius: 7px;
 }
 
 header {
     width: 100%;
-    height: 700px;
+    height: 650px;
     background: url(/img/bg1.jpg) no-repeat;
     -moz-background-size: 100%; /* Firefox 3.6+ */
     -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
@@ -142,7 +147,7 @@ nav ul {
     background-color: #182531;
     display: block;
     width: 1100px;
-    margin: 0 auto;
+    margin: 70px auto;
     position: relative;
 }
 
@@ -223,12 +228,20 @@ nav ul {
 }
 /*end style for slide best films*/
 
+/*style for content*/
+#content {
+    background-color: #091016;
+    padding: 5px;
+}
+
+
 /*style for infoBlock*/
 #infoBlock {
     width: 1100px;
-    padding: 10px;
-    margin: 0 auto;
+    /*padding: 10px;*/
+    margin: 30px auto 50px auto;
     font-family: 'Exo 2', sans-serif;
+    border: 1px solid #494949;
 }
 
 #titleInfoBlock {
@@ -244,3 +257,26 @@ nav ul {
     text-align: justify;
 }
 /*end style for infoBlock */
+
+
+footer {
+    background-color: #0C151D;
+    color: white;
+    padding: 7px;
+}
+
+footer a {
+    color: white;
+}
+
+footer li {
+    list-style-type: none;
+}
+
+footer ul {
+    margin: 0 0 0 100px;
+    padding-left: 0;
+}
+
+
+/*end style for content*/
