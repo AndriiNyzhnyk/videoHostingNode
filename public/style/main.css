@@ -23,7 +23,7 @@ a {
 }
 
 #logo {
-    margin: 0 70px 0 100px;
+    margin: 0 5% 0 10%;
     padding: 0;
 }
 
@@ -96,7 +96,7 @@ nav ul {
     /*color: grey;*/
     color: #D5D5D5;
     padding: 15px 0;
-    margin: 0 45px 0 45px;
+    margin: 0 40px 0 45px;
     /*width: 220px;*/
 }
 .topmenu li a:hover { color: white; }
@@ -274,7 +274,7 @@ footer li {
 }
 
 footer ul {
-    margin: 0 0 0 100px;
+    margin: 0 0 0 7%;
     padding-left: 0;
 }
 
