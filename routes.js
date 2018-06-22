@@ -1,6 +1,8 @@
+const db = require('./database');
+
 module.exports = (app) => {
     app.get('/', (req, res) => {
-        res.render('home.hbs');
+        res.render('home.hbs', db.optionsMainPage);
     });
 
     // Обробник 404 помилки

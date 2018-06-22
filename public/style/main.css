@@ -164,7 +164,14 @@ nav ul {
     background-color: #091018;
     padding: 10px 5px;
     margin-top: -5px;
+    text-align: center;
 }
+
+.nameFilmsSlider p {
+    font-size: 0.7em;
+    margin: 5px 0;
+}
+
 
 #sliderMonitor {
     text-align: left;
