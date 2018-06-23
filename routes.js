@@ -5,6 +5,10 @@ module.exports = (app) => {
         res.render('home.hbs', db.optionsMainPage);
     });
 
+    app.get('/testSignIn', (req, res) => {
+        res.render('signIn.hbs');
+    });
+
     // Обробник 404 помилки
     app.use((req, res, next) => {
         res.status(404);
