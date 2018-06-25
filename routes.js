@@ -1,12 +1,23 @@
 const db = require('./database');
 
-module.exports = (app) => {
+module.exports = (app, urlencodedParser) => {
     app.get('/', (req, res) => {
         res.render('home.hbs', db.optionsMainPage);
     });
 
-    app.get('/testSignIn', (req, res) => {
+    app.get('/signInControlPanel', (req, res) => {
         res.render('signIn.hbs');
+    });
+
+    app.post('/signInAdmin', urlencodedParser, (req, res) => {
+        if(!req.body) {
+            return res.sendStatus(400);
+        } else {
+            // res.sendStatus(200);
+            res.status(200).send("ok")
+
+        }
+        console.log(req.body);
     });
 
     // Обробник 404 помилки

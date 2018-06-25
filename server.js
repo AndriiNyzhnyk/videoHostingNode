@@ -2,8 +2,11 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const hbs = require('hbs');
+const bodyParser = require("body-parser");
 const cors = require('cors');
 const helmet = require('helmet');
+
+const urlencodedParser = bodyParser.urlencoded({extended: true});
 
 hbs.registerPartials(path.join(__dirname, '/views/partials'));
 
@@ -14,7 +17,7 @@ app.use(cors());
 app.use(helmet());
 app.use(express.static(path.join(__dirname, 'public')));
 
-require('./routes.js')(app);
+require('./routes.js')(app, urlencodedParser);
 
 
 
