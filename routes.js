@@ -1,4 +1,5 @@
 const db = require('./database');
+const streamVideo = require('./streamVideo');
 
 module.exports = (app, urlencodedParser) => {
     app.get('/', (req, res) => {
@@ -9,13 +10,20 @@ module.exports = (app, urlencodedParser) => {
         res.render('signIn.hbs');
     });
 
+    app.get('/testVideoStream', (req, res) => {
+        res.render('testVideoStream');
+    });
+
+    app.get('/video', (req, res) => {
+        streamVideo(req, res);
+    });
+
     app.post('/signInAdmin', urlencodedParser, (req, res) => {
         if(!req.body) {
             return res.sendStatus(400);
         } else {
             // res.sendStatus(200);
             res.status(200).send("ok")
-
         }
         console.log(req.body);
     });
