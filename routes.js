@@ -11,6 +11,10 @@ module.exports = (app, urlencodedParser) => {
         res.render('signIn.hbs');
     });
 
+    app.get('/admin-control-panel', (req, res) => {
+        res.render('adminControlPanel.hbs');
+    });
+
     app.get('/testVideoStream', (req, res) => {
         res.render('testVideoStream');
     });
@@ -20,14 +24,15 @@ module.exports = (app, urlencodedParser) => {
     });
 
     app.post('/signInAdmin', urlencodedParser, (req, res) => {
-        if(!req.body) {
-            return res.sendStatus(400);
-        } else {
-            // res.sendStatus(200);
-            res.status(200).send("ok")
-        }
+        if(!req.body) return res.sendStatus(400);
 
         let result = security(req.body.login, req.body.password);
+
+        if(result === 'ok') {
+            res.status(200).send('/admin-control-panel');
+        } else {
+            res.status(200).send('badLoginOrPassword');
+        }
         console.log(result);
     });
 

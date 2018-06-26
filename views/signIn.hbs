@@ -45,6 +45,12 @@
             function reqReadyStateChange() {
                 if (XHR.readyState === 4 && XHR.status === 200) {
                     console.log(XHR.responseText);
+
+                    if(XHR.responseText === 'badLoginOrPassword') {
+                        alert("Пароль або Логін некоректні !");
+                    } else {
+                        window.location.href = XHR.responseText;
+                    }
                 }
             }
 
