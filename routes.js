@@ -1,5 +1,6 @@
 const db = require('./database');
 const streamVideo = require('./streamVideo');
+const security = require('./security');
 
 module.exports = (app, urlencodedParser) => {
     app.get('/', (req, res) => {
@@ -25,7 +26,9 @@ module.exports = (app, urlencodedParser) => {
             // res.sendStatus(200);
             res.status(200).send("ok")
         }
-        console.log(req.body);
+
+        let result = security(req.body.login, req.body.password);
+        console.log(result);
     });
 
     // Обробник 404 помилки
