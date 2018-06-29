@@ -101,6 +101,67 @@ html, body {
     background-color: #0C151D;
 }
 
+#rightSidebar h4 {
+    margin: 15px;
+    font-size: 1.1em;
+    font-family: 'Exo 2', sans-serif;
+    color: white;
+}
+
+#contentRightSidebar {
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
+    grid-template-rows: repeat(12, 50px);
+    /*padding: 10px;*/
+}
+
+.newFilm {
+    /*padding: 5px 0;*/
+    border: 1px solid #182531;
+    box-sizing: border-box;
+    margin: 10px 0;
+}
+
+.newFilm img {
+    width: 100%;
+    height: 100%;
+}
+
+.textNewFilm {
+    background-color: black;
+    opacity: 0.9;
+    text-align: center;
+}
+
+.textNewFilm p {
+    /*margin: -50px 0 0 0;*/
+    padding: 10px 0;
+    color: white;
+    opacity: 1;
+}
+
+
+
+#newFilm1 {
+    grid-column: 2 / 13;
+    grid-row: 1 / 6;
+}
+
+#newFilm2 {
+    grid-column: 14 / 24;
+    grid-row: 1 / 6;
+}
+
+#newFilm3 {
+    grid-column: 2 / 13;
+    grid-row: 6 / 11;
+}
+
+#newFilm4 {
+    grid-column: 14 / 24;
+    grid-row: 6 / 11;
+}
+
 #imgFilm {
     grid-column: 1 / 8;
     grid-row: 1 / 7;

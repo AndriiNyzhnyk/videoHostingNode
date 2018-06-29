@@ -1,4 +1,5 @@
 window.onload = function () {
+    // scripts for Header slider
     let monitor = document.getElementById('sliderMonitor');
     let visibleWindow = document.getElementById('visibleWindow');
     let items = document.getElementsByClassName('items');
@@ -25,7 +26,7 @@ window.onload = function () {
 
     let interval = setInterval( slider, 7000);
 
-// setTimeout(slider, 7000);
+    // setTimeout(slider, 7000);
 
     function shiftLeft() {
         items[i].style.marginLeft = `${-sliderWidth - 5}px`;
@@ -65,6 +66,5 @@ window.onload = function () {
             interval = setInterval( slider, 7000);
         }
     };
-
-
+    // end scripts for Header slider
 };

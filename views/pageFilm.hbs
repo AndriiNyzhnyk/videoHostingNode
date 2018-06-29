@@ -65,7 +65,30 @@
             </div>
         </div>
 
-        <div id="rightSidebar"></div>
+        <div id="rightSidebar">
+            <h4>Скоро на сайті</h4>
+            <div id="contentRightSidebar">
+                <div id="newFilm1" class="newFilm">
+                    <img src="/img/hmarochos.jpg" alt="">
+                    <div class="textNewFilm"><p>Хмарочос</p></div>
+                </div>
+
+                <div id="newFilm2" class="newFilm">
+                    <img src="/img/poxmilla.jpg" alt="">
+                    <div class="textNewFilm"><p>Похмілля у Європі</p></div>
+                </div>
+
+                <div id="newFilm3" class="newFilm">
+                    <img src="/img/zachariwaniy.jpg" alt="">
+                    <div class="textNewFilm"><p>Зачарований Принц</p></div>
+                </div>
+
+                <div id="newFilm4" class="newFilm">
+                    <img src="/img/monstr.jpg" alt="">
+                    <div class="textNewFilm"><p>Монстри на канкулах 3</p></div>
+                </div>
+            </div>
+        </div>
 
         <div id="descriptionFilm">
             <h3>Про фільм Месники: Війна Нескінченності (2018) українською мовою: </h3>
@@ -159,9 +182,10 @@
 
 
     <script>
-        document.addEventListener('DOMContentLoaded', init, false);
-
-        function init() {
+        // scripts for control player
+        // document.addEventListener('DOMContentLoaded', init, false);
+        //
+        // function init() {
             // const VP = document.getElementById('windowVideoPlayer');
             // const VPToggle = document.getElementById('toggleButton');
             //
@@ -169,7 +193,19 @@
             //   if (VP.paused) VP.play();
             //   else VP.pause()
             // })
+        // }
+
+
+        window.onload = function () {
+            let textNewFilm = document.getElementsByClassName('textNewFilm');
+            // console.log(textNewFilm);
+
+            for(let i = 0; i < textNewFilm.length; i++) {
+                let heightItem = textNewFilm[i].offsetHeight;
+                textNewFilm[i].style.marginTop = -heightItem - 19 + 'px';
+            }
         }
+
     </script>
 
 </div>
