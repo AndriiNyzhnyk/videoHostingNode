@@ -148,7 +148,7 @@
 
         <div id="videoPlayer">
             <video id="windowVideoPlayer" controls>
-                <source src="" type="video/mp4">
+                <source src="/video" type="video/mp4">
             </video>
         </div>
 
@@ -156,6 +156,21 @@
     </div>
 
     {{> footer}}
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', init, false);
+
+        function init() {
+            // const VP = document.getElementById('windowVideoPlayer');
+            // const VPToggle = document.getElementById('toggleButton');
+            //
+            // VPToggle.addEventListener('click', function() {
+            //   if (VP.paused) VP.play();
+            //   else VP.pause()
+            // })
+        }
+    </script>
 
 </div>
 
