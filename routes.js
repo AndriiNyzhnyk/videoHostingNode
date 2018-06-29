@@ -7,6 +7,10 @@ module.exports = (app, urlencodedParser) => {
         res.render('home.hbs', db.optionsMainPage);
     });
 
+    app.get('/pageFilm', (req, res) => {
+        res.render('pageFilm.hbs');
+    });
+
     app.get('/signInControlPanel', (req, res) => {
         res.render('signIn.hbs');
     });
