@@ -3,6 +3,7 @@ const streamVideo = require('./streamVideo');
 const security = require('./security');
 
 module.exports = (app, urlencodedParser) => {
+    // routes for web page
     app.get('/', (req, res) => {
         res.render('home.hbs', db.optionsMainPage);
     });
@@ -11,20 +12,18 @@ module.exports = (app, urlencodedParser) => {
         res.render('pageFilm.hbs');
     });
 
+    // routes for stream video
+    app.get('/video', (req, res) => {
+        streamVideo(req, res);
+    });
+
+    // routes for admin control panel
     app.get('/signInControlPanel', (req, res) => {
         res.render('signIn.hbs');
     });
 
     app.get('/admin-control-panel', (req, res) => {
         res.render('adminControlPanel.hbs');
-    });
-
-    app.get('/testVideoStream', (req, res) => {
-        res.render('testVideoStream');
-    });
-
-    app.get('/video', (req, res) => {
-        streamVideo(req, res);
     });
 
     app.post('/signInAdmin', urlencodedParser, (req, res) => {
