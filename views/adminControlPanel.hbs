@@ -1,1 +1,121 @@
-<h1>Admin controp Panel</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Список користувачів</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+</head>
+<body>
+    <h2>Film List</h2>
+    <form name="userForm">
+        <input type="hidden" name="id" value="0" />
+        <div class="form-group">
+            <label for="nameUa">Name Film ua:</label>
+            <input type="text" class="form-control" name="nameUA" required/>
+        </div>
+
+        <div class="form-group">
+            <label for="nameEn">Name Film en:</label>
+            <input type="text" class="form-control" name="nameEn" required/>
+        </div>
+
+        <div class="form-group">
+            <label for="sourseImg">Sourse Img:</label>
+            <input type="text" class="form-control" name="sourseImg" required/>
+        </div>
+
+        <div class="form-group">
+            <label for="sourseVideo">Sourse Video:</label>
+            <input type="text" class="form-control" name="sourseVideo" required/>
+        </div>
+
+        <div class="form-group">
+            <label for="qualityVideo">Quality Video:</label>
+            <input type="text" class="form-control" name="qualityVideo" required/>
+        </div>
+
+        <div class="form-group">
+            <label for="translation">Translation:</label>
+            <input type="text" class="form-control" name="translation" required/>
+        </div>
+
+        <div class="form-group">
+            <label for="motto">Motto:</label>
+            <input type="text" class="form-control" name="motto" required/>
+        </div>
+
+        <div class="form-group">
+            <label for="year">Year:</label>
+            <input type="number" class="form-control" name="year" required/>
+        </div>
+
+        <div class="form-group">
+            <label for="country">Country:</label>
+            <input type="text" class="form-control" name="country" required/>
+        </div>
+
+        <div class="form-group">
+            <label for="genre">Genre:</label>
+            <input type="text" class="form-control" name="genre" required/>
+        </div>
+
+        <div class="form-group">
+            <label for="category">Category:</label>
+            <input type="text" class="form-control" name="category" required/>
+        </div>
+
+        <div class="form-group">
+            <label for="producer">Producer:</label>
+            <input type="text" class="form-control" name="producer" required/>
+        </div>
+
+        <div class="form-group">
+            <label for="duration">Duration:</label>
+            <input type="number" class="form-control" name="duration" required/>
+        </div>
+
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" class="form-control" name="age" required/>
+        </div>
+
+        <div class="form-group">
+            <label for="firstRun">First run:</label>
+            <input type="text" class="form-control" name="firstRun" required/>
+        </div>
+
+        <div class="panel-body">
+            <button type="submit" class="btn btn-sm btn-primary">Зберегти</button>
+            <a id="reset" class="btn btn-sm btn-primary">Очистити</a>
+        </div>
+    </form>
+<table class="table table-condensed table-striped table-bordered">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>NameUa</th>
+        <th>NameEn</th>
+        <th>SourseImg</th>
+        <th>SourseFilm</th>
+        <th>QualityVideo</th>
+        <th>Translation</th>
+        <th>Motto</th>
+        <th>Year</th>
+        <th>Country</th>
+        <th>Genre</th>
+        <th>Category</th>
+        <th>Producer</th>
+        <th>Duration</th>
+        <th>Age</th>
+        <th>First run</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+</body>
+</html>
