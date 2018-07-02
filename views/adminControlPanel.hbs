@@ -3,86 +3,109 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>Список користувачів</title>
+    <title>Movies List</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        /* for Chrome */
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            margin: 0;
+        }
+
+        /* for Firefox */
+        input[type=number]{
+            -moz-appearance: textfield;
+        }
+
+        /*for others*/
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+    </style>
 </head>
 <body>
-    <h2>Film List</h2>
+    <h2>Movies List</h2>
     <form name="filmForm">
         <input type="hidden" name="id" value="0" />
         <div class="form-group">
             <label for="nameUa">Name Film ua:</label>
-            <input type="text" class="form-control" name="nameUa" required/>
+            <input type="text" class="form-control" name="nameUa" required autocomplete="off"/>
         </div>
 
         <div class="form-group">
             <label for="nameEn">Name Film en:</label>
-            <input type="text" class="form-control" name="nameEn" required/>
+            <input type="text" class="form-control" name="nameEn" required autocomplete="off"/>
         </div>
 
         <div class="form-group">
             <label for="sourseImg">Sourse Img:</label>
-            <input type="text" class="form-control" name="sourseImg" required/>
+            <input type="text" class="form-control" name="sourseImg" required autocomplete="off"/>
         </div>
 
         <div class="form-group">
             <label for="sourseVideo">Sourse Video:</label>
-            <input type="text" class="form-control" name="sourseVideo" required/>
+            <input type="text" class="form-control" name="sourseVideo" required autocomplete="off"/>
         </div>
 
         <div class="form-group">
             <label for="qualityVideo">Quality Video:</label>
-            <input type="text" class="form-control" name="qualityVideo" required/>
+            <input type="text" class="form-control" name="qualityVideo" required autocomplete="off"/>
         </div>
 
         <div class="form-group">
             <label for="translation">Translation:</label>
-            <input type="text" class="form-control" name="translation" required/>
+            <input type="text" class="form-control" name="translation" required autocomplete="off"/>
         </div>
 
         <div class="form-group">
             <label for="motto">Motto:</label>
-            <input type="text" class="form-control" name="motto" required/>
+            <input type="text" class="form-control" name="motto" required autocomplete="off"/>
         </div>
 
         <div class="form-group">
             <label for="year">Year:</label>
-            <input type="number" class="form-control" name="year" required/>
+            <input type="number" class="form-control" name="year" required autocomplete="off"/>
         </div>
 
         <div class="form-group">
             <label for="country">Country:</label>
-            <input type="text" class="form-control" name="country" required/>
+            <input type="text" class="form-control" name="country" required autocomplete="off"/>
         </div>
 
         <div class="form-group">
             <label for="genre">Genre:</label>
-            <input type="text" class="form-control" name="genre" required/>
+            <input type="text" class="form-control" name="genre" required autocomplete="off"/>
         </div>
 
         <div class="form-group">
             <label for="category">Category:</label>
-            <input type="text" class="form-control" name="category" required/>
+            <input type="text" class="form-control" name="category" required autocomplete="off"/>
         </div>
 
         <div class="form-group">
             <label for="producer">Producer:</label>
-            <input type="text" class="form-control" name="producer" required/>
+            <input type="text" class="form-control" name="producer" requiredautocomplete="off"/>
         </div>
 
         <div class="form-group">
             <label for="duration">Duration:</label>
-            <input type="number" class="form-control" name="duration" required/>
+            <input type="number" class="form-control" name="duration" required autocomplete="off"/>
         </div>
 
         <div class="form-group">
             <label for="age">Age:</label>
-            <input type="number" class="form-control" name="age" required/>
+            <input type="number" class="form-control" name="age" required autocomplete="off"/>
         </div>
 
         <div class="form-group">
             <label for="firstRun">First run:</label>
-            <input type="text" class="form-control" name="firstRun" required/>
+            <input type="text" class="form-control" name="firstRun" required autocomplete="off"/>
         </div>
 
         <div class="panel-body">
