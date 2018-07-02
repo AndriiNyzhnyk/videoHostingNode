@@ -3,6 +3,7 @@ const path = require('path');
 const app = express();
 const hbs = require('hbs');
 const bodyParser = require("body-parser");
+const  jsonParser = bodyParser.json();
 const cors = require('cors');
 const helmet = require('helmet');
 
@@ -17,7 +18,7 @@ app.use(cors());
 app.use(helmet());
 app.use(express.static(path.join(__dirname, 'public')));
 
-require('./routes.js')(app, urlencodedParser);
+require('./routes.js')(app, urlencodedParser, jsonParser);
 
 
 

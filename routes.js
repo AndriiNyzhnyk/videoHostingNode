@@ -1,8 +1,10 @@
 const db = require('./database');
 const streamVideo = require('./streamVideo');
 const security = require('./security');
+const dataDbControllers = require('./database/controller/dataDb');
 
-module.exports = (app, urlencodedParser) => {
+
+module.exports = (app, urlencodedParser, jsonParser) => {
     // routes for web page
     app.get('/', (req, res) => {
         res.render('home.hbs', db.optionsMainPage);
@@ -38,6 +40,23 @@ module.exports = (app, urlencodedParser) => {
         }
         console.log(result);
     });
+
+    // routes for work database
+    // getting list data
+    app.get("/api/films", dataDbControllers.films);
+
+// get one user by id
+    app.get("/api/films/:id", dataDbControllers.getFilmId);
+
+// add a user to the database
+    app.post("/api/film", jsonParser, dataDbControllers.postAddFilm);
+
+// remove user by id
+    app.delete("/api/film/:id", dataDbControllers.deleteFilm);
+
+// change movie data
+    app.put("/api/film", jsonParser, dataDbControllers.putFilm);
+
 
     // Обробник 404 помилки
     app.use((req, res, next) => {
