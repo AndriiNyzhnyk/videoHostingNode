@@ -3,10 +3,12 @@ const path = require('path');
 const app = express();
 const hbs = require('hbs');
 const bodyParser = require("body-parser");
-const  jsonParser = bodyParser.json();
+const jsonParser = bodyParser.json();
+const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const helmet = require('helmet');
 const favicon = require('serve-favicon');
+const security = require('./security/securityKey');
 
 const urlencodedParser = bodyParser.urlencoded({extended: true});
 
@@ -19,6 +21,7 @@ app.use(cors());
 app.use(helmet());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(cookieParser(security.cookieSecret));
 
 require('./routes.js')(app, urlencodedParser, jsonParser);
 

@@ -1,6 +1,7 @@
 const db = require('./database');
 const streamVideo = require('./streamVideo');
 const security = require('./security');
+const securityKey = require('./security/securityKey');
 const dataDbControllers = require('./database/controller/dataDb');
 
 
@@ -25,7 +26,11 @@ module.exports = (app, urlencodedParser, jsonParser) => {
     });
 
     app.get('/admin-control-panel', (req, res) => {
-        res.render('adminControlPanel.hbs');
+        if(req.signedCookies.signedMonster === securityKey.myCookie) {
+            res.render('adminControlPanel.hbs');
+        } else {
+            res.redirect('/signInControlPanel');
+        }
     });
 
     app.post('/signInAdmin', urlencodedParser, (req, res) => {
@@ -34,11 +39,15 @@ module.exports = (app, urlencodedParser, jsonParser) => {
         let result = security(req.body.login, req.body.password);
 
         if(result === 'ok') {
+            res.cookie('signedMonster', 'welcomeAdmin',
+                {signed: true,
+                maxAge: 100000,
+                httpOnly: true});
             res.status(200).send('/admin-control-panel');
         } else {
             res.status(200).send('badLoginOrPassword');
         }
-        console.log(result);
+        // console.log(result);
     });
 
     // routes for work database
