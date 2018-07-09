@@ -130,7 +130,7 @@ $( document ).ready(function() {
     // create table
     function row(film) {
         return "<tr data-rowid='" + film._id + "'>" +
-            "<td>" + film._id + "</td>" +
+            // "<td id='id'>" + film._id + "</td>" +
             "<td>" + film.nameUa + "</td> " +
             "<td>" + film.nameEn + "</td> " +
             "<td>" + film.sourseImg + "</td> " +
