@@ -13,22 +13,28 @@ a {
 }
 
 #topHeader {
-    width: 100%;
-    min-height: 40px;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
     background-color: #041D28;
 }
 
-#logo, #search {
-    display: inline-block;
+#logo {
+    grid-column: 2 / span 1;
 }
 
-#logo {
-    margin: 0 5% 0 10%;
-    padding: 0;
+#logo h4 {
+    margin: 20px 0;
+}
+
+#search {
+    grid-column: 3 / span 3;
+    margin: 15px 0;
 }
 
 #search input {
-    width: 350px;
+    width: 100%;
+    box-sizing: border-box;
     height: 30px;
     border-radius: 7px;
 }
@@ -265,11 +271,17 @@ nav ul {
 }
 /*end style for infoBlock */
 
+/*end style for content*/
 
+/*footer*/
 footer {
     background-color: #0C151D;
     color: white;
-    padding: 7px;
+    /*padding: 7px;*/
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+
 }
 
 footer a {
@@ -281,9 +293,6 @@ footer li {
 }
 
 footer ul {
-    margin: 0 0 0 7%;
+    grid-column: 2 / span 2;
     padding-left: 0;
 }
-
-
-/*end style for content*/
