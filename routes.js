@@ -8,7 +8,7 @@ const dataDbControllers = require('./database/controller/dataDb');
 module.exports = (app, urlencodedParser, jsonParser) => {
     // routes for web page
     app.get('/', (req, res) => {
-        res.render('home.hbs', db.optionsMainPage);
+        res.render('home.hbs', db.optionsMainPage());
     });
 
     app.get('/pageFilm', (req, res) => {

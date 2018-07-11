@@ -1,7 +1,7 @@
-let  mongoClient = require('mongodb').MongoClient;
-let  objectId = require('mongodb').ObjectID;
-let  url = 'mongodb://localhost:27017/moviesdb';
-let func = require('../../functions');
+const  mongoClient = require('mongodb').MongoClient;
+const  objectId = require('mongodb').ObjectID;
+const  url = 'mongodb://localhost:27017/moviesdb';
+const func = require('../../functions');
 
 exports.films = (cb) => {
     mongoClient.connect(url, (err, db) => {

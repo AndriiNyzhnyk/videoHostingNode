@@ -4,4 +4,4 @@ module.exports.isEmptyObj = (obj) => {
         return false;
     }
     return true;
-}
+};
