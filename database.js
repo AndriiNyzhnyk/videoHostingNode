@@ -2,13 +2,14 @@ const  mongoClient = require('mongodb').MongoClient;
 const  url = 'mongodb://localhost:27017/moviesdb';
 
 let options;
-(async function initRequest() {
+
+async function initRequest() {
     let movies = await getAllMovies();
     // console.log(movies);
     let filterListMovies = await filterMovies(movies);
     // console.log(filterListMovies);
     options = await createOptionsMainPage(filterListMovies);
-})();
+}
 
 // get all movies for slider in header
 function getAllMovies() {
@@ -24,12 +25,11 @@ function getAllMovies() {
                     resolve(films);
                 }
             });
-
-
         });
     });
 }
 
+// function that filter all movies and return only nameUa and sourseImg movies
 function filterMovies(movies) {
     return new Promise((resolve, reject) => {
         let list = [];
@@ -42,6 +42,7 @@ function filterMovies(movies) {
     });
 }
 
+// create options for handlebars "main page"
 function createOptionsMainPage(list) {
     return new Promise((resolve, reject) => {
         let options = Object.create(null);
@@ -55,6 +56,12 @@ function createOptionsMainPage(list) {
         resolve(options)
     });
 }
+
+// init call
+initRequest();
+
+// update options for main page every 30 minutes
+setInterval(initRequest, 1800000);
 
 module.exports.optionsMainPage = () => {
     return options;
