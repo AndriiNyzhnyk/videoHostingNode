@@ -1,3 +1,4 @@
 .idea/
 node_modules/
 security/securityKey.js
+database/db/
