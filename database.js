@@ -9,6 +9,7 @@ async function initRequest() {
     let filterListMovies = await filterMovies(movies);
     // console.log(filterListMovies);
     options = await createOptionsMainPage(filterListMovies);
+    // console.log(options);
 }
 
 // get all movies for slider in header
@@ -29,13 +30,13 @@ function getAllMovies() {
     });
 }
 
-// function that filter all movies and return only nameUa and sourseImg movies
+// function that filter all movies and return only nameUa, nameEn and sourseImg movies
 function filterMovies(movies) {
     return new Promise((resolve, reject) => {
         let list = [];
 
         for (let i = 0; i < movies.length; i++) {
-            list.push([movies[i].nameUa, movies[i].sourseImg])
+            list.push([movies[i].nameUa, movies[i].nameEn, movies[i].sourseImg])
         }
 
         resolve(list);
@@ -46,11 +47,12 @@ function filterMovies(movies) {
 function createOptionsMainPage(list) {
     return new Promise((resolve, reject) => {
         let options = Object.create(null);
-        options.title ='VideoHost.ua';
+        options.title = 'VideoHost.ua';
 
         for (let i = 0; i < list.length; i++) {
             options['filmName' + (i + 1)] = list[i][0];
-            options['filmSrcImg' + (i + 1)] = list[i][1];
+            options['filmNameEn' + (i + 1)] = list[i][1];
+            options['filmSrcImg' + (i + 1)] = list[i][2];
         }
 
         resolve(options)

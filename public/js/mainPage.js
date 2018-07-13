@@ -67,4 +67,18 @@ window.onload = function () {
         }
     };
     // end scripts for Header slider
+
+    // add EventListener on slider
+    let sliders = document.getElementsByClassName('slider');
+    console.log(sliders);
+
+    for (let i = 0; i < sliders.length; i++) {
+        sliders[i].addEventListener('click', function (e) {
+            let src = e.target.attributes.src.value;
+            console.log(src);
+            let movie = src.slice(12, -4);
+            console.log(movie);
+            window.location.href = `movie/${movie}`;
+        });
+    }
 };
