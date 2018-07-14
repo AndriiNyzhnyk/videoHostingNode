@@ -5,12 +5,16 @@ let allMovies;
 let optionsMainPage;
 
 async function initRequest() {
-    allMovies = await getAllMovies();
-    // console.log(allMovies);
-    let filterListMovies = await filterMovies(allMovies);
-    // console.log(filterListMovies);
-    optionsMainPage = await createOptionsMainPage(filterListMovies);
-    // console.log(options);
+    try {
+        allMovies = await getAllMovies();
+        // console.log(allMovies);
+        let filterListMovies = await filterMovies(allMovies);
+        // console.log(filterListMovies);
+        optionsMainPage = await createOptionsMainPage(filterListMovies);
+        // console.log(options);
+    } catch (err) {
+        console.error(err);
+    }
 }
 
 // get all movies for slider in header
@@ -62,8 +66,12 @@ function createOptionsMainPage(list) {
 
 // create options for movie page
 async function createOptionsForMoviePage (movie) {
-    let indexMovie = await searchIndex(movie);
-    return await getDataMovie(indexMovie);
+    try {
+        let indexMovie = await searchIndex(movie);
+        return await getDataMovie(indexMovie);
+    } catch (err) {
+        console.error(err);
+    }
 }
 
 function searchIndex(movie) {
