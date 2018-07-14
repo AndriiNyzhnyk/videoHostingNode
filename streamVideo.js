@@ -1,18 +1,19 @@
 const fs = require('fs');
 const path = require('path');
 
-async function startStream(req, res) {
+async function startStream(req, res, sourse) {
     try {
-        await stream(req, res);
+        await stream(req, res, sourse);
 
     } catch (err) {
-        console.log(err);
+        console.error(err);
     }
 }
 
-function stream(req, res) {
+function stream(req, res, sourse) {
     return new Promise( (resolve, reject) => {
-        const pathVideo = path.join(__dirname, 'public/films/avengers:InfinityWar.mp4');
+        // console.log(sourse);
+        const pathVideo = path.join(__dirname, `public${sourse}`);
         const stat = fs.statSync(pathVideo);
         const fileSize = stat.size;
         const range = req.headers.range;

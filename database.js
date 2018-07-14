@@ -6,7 +6,7 @@ let optionsMainPage;
 
 async function initRequest() {
     allMovies = await getAllMovies();
-    console.log(allMovies);
+    // console.log(allMovies);
     let filterListMovies = await filterMovies(allMovies);
     // console.log(filterListMovies);
     optionsMainPage = await createOptionsMainPage(filterListMovies);

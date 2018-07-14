@@ -16,14 +16,20 @@ module.exports = (app, urlencodedParser, jsonParser) => {
         // console.log(movie);
 
         db.getOptionsMoviePage(movie).then( (options) => {
-            console.log(options);
+            // console.log(options);
             res.render('pageFilm.hbs', options);
         })
     });
 
     // routes for stream video
-    app.get('/video', (req, res) => {
-        streamVideo(req, res);
+    app.get('/video/:part1/:part2.:part3', (req, res) => {
+        let part1 = req.params['part1'];
+        let part2 = req.params['part2'];
+        let part3 = req.params['part3'];
+
+        let sourse = `/${part1}/${part2}.${part3}`;
+        // console.log(sourse);
+        streamVideo(req, res, sourse);
     });
 
     // routes for admin control panel
