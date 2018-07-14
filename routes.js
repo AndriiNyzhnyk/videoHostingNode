@@ -8,11 +8,17 @@ const dataDbControllers = require('./database/controller/dataDb');
 module.exports = (app, urlencodedParser, jsonParser) => {
     // routes for web page
     app.get('/', (req, res) => {
-        res.render('home.hbs', db.optionsMainPage());
+        res.render('home.hbs', db.getOptionsMainPage());
     });
 
-    app.get('/pageFilm', (req, res) => {
-        res.render('pageFilm.hbs');
+    app.get('/movie/:movie', (req, res) => {
+        let movie = req.params['movie'];
+        // console.log(movie);
+
+        db.getOptionsMoviePage(movie).then( (options) => {
+            console.log(options);
+            res.render('pageFilm.hbs', options);
+        })
     });
 
     // routes for stream video

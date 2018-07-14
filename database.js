@@ -1,14 +1,15 @@
 const  mongoClient = require('mongodb').MongoClient;
 const  url = 'mongodb://localhost:27017/moviesdb';
 
-let options;
+let allMovies;
+let optionsMainPage;
 
 async function initRequest() {
-    let movies = await getAllMovies();
-    // console.log(movies);
-    let filterListMovies = await filterMovies(movies);
+    allMovies = await getAllMovies();
+    console.log(allMovies);
+    let filterListMovies = await filterMovies(allMovies);
     // console.log(filterListMovies);
-    options = await createOptionsMainPage(filterListMovies);
+    optionsMainPage = await createOptionsMainPage(filterListMovies);
     // console.log(options);
 }
 
@@ -59,12 +60,45 @@ function createOptionsMainPage(list) {
     });
 }
 
+// create options for movie page
+async function createOptionsForMoviePage (movie) {
+    let indexMovie = await searchIndex(movie);
+    return await getDataMovie(indexMovie);
+}
+
+function searchIndex(movie) {
+    return new Promise((resolve, reject) => {
+        let startString = '/img/slider/';
+        let endString = '.jpg';
+        let src = `${startString}${movie}${endString}`;
+        // console.log(src);
+
+        for(let i = 0; i < allMovies.length; i++) {
+            if(allMovies[i].sourseImg === src) {
+                resolve(i);
+                break;
+            }
+        }
+
+        reject('No matches were found');
+
+    });
+}
+
+function getDataMovie(index) {
+    return new Promise((resolve, reject) => {
+        resolve(allMovies[index]);
+    });
+}
+
 // init call
 initRequest();
 
-// update options for main page every 30 minutes
+// update data every 30 minutes
 setInterval(initRequest, 1800000);
 
-module.exports.optionsMainPage = () => {
-    return options;
+module.exports.getOptionsMainPage = () => {
+    return optionsMainPage;
 };
+
+module.exports.getOptionsMoviePage = createOptionsForMoviePage;
