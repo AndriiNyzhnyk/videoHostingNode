@@ -38,6 +38,8 @@ html, body {
     border-radius: 7px;
 }
 
+/* style for content*/
+
 #content {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -55,7 +57,6 @@ html, body {
     grid-row: 1 / 8;
 }
 
-
 #filmName {
     grid-column: 2 / 12;
     grid-row: 3 / 4;
@@ -63,7 +64,6 @@ html, body {
     z-index: 1;
     padding: 20px 0 1px 20px;
     box-sizing: border-box;
-
 }
 
 #filmName h3 {
@@ -76,6 +76,33 @@ html, body {
     font-size: 0.8em;
     margin: 10px 0 6px 0;
     color: grey;
+}
+
+@media screen and (min-width: 1600px){
+    #content {
+        grid-template-rows:  100px 70px 90px
+        repeat(10, 100px)
+        repeat(3, 150px)
+        repeat(4, 100px)
+        repeat(6, 130px)
+        repeat(4, 120px);
+        /*grid-template-rows:  100px 70px 90px repeat(27, 100px);*/
+    }
+
+    #backgroundImg {
+        grid-row: 1 / 13;
+    }
+
+    #filmName h3 {
+        margin: 0 0 15px 0;
+        font-size: 1.5em;
+    }
+
+    #filmName p {
+        font-size: 1em;
+        margin: 15px 0 10px 0;
+    }
+
 }
 
 #leftSidebar {
@@ -94,7 +121,7 @@ html, body {
 
 }
 
-
+/* style for right sidebar */
 #rightSidebar {
     grid-column: 9 / 12;
     grid-row: 4 / 13;
@@ -162,6 +189,16 @@ html, body {
     grid-row: 6 / 11;
 }
 
+@media screen and (min-width: 1600px){
+    #rightSidebar h4 {
+        font-size: 1.2em;
+    }
+
+    #contentRightSidebar {
+        grid-template-rows: repeat(12, 60px);
+    }
+}
+
 #imgFilm {
     grid-column: 1 / 8;
     grid-row: 1 / 7;
@@ -214,6 +251,25 @@ html, body {
     background-color: #182531;
 }
 
+@media screen and (min-width: 1600px) {
+    #contentLeftSideBar {
+        grid-template-rows: repeat(8, 50px);
+        padding: 10px 0 0 0;
+
+    }
+
+    #imgFilm {
+        grid-row: 1 / 8;
+        padding: 8px 15px 0 15px;
+
+    }
+
+    #textInfoLeftSidebar ul li {
+        padding: 5px 0;
+        font-size: 1.2em;
+    }
+}
+
 
 #descriptionFilm {
     grid-column: 2 / 9;
@@ -231,6 +287,21 @@ html, body {
 
 #descriptionFilm p {
     color: #DBDBDB;
+}
+
+@media screen and (min-width: 1600px) {
+    #descriptionFilm {
+        padding: 15px;
+        border: 2px solid #494949;
+    }
+
+    #descriptionFilm h3 {
+        font-size: 1.5em;
+    }
+
+    #descriptionFilm p {
+        font-size: 1.3em;
+    }
 }
 
 #starring {
@@ -264,6 +335,25 @@ html, body {
 
 }
 
+@media screen and (min-width: 1600px) {
+    #starring {
+        border: 2px solid #494949;
+        padding: 10px;
+    }
+
+    #starring h4 {
+        font-size: 1.2em;
+        margin: 20px 0 20px 15px;
+    }
+
+    .itemStarring {
+        margin: 12px 0;
+        padding: 5px;
+        font-size: 1.3em;
+    }
+
+}
+
 #interestingFacts {
     grid-column: 2 / 9;
     grid-row: 16 / 20;
@@ -283,6 +373,26 @@ html, body {
 
 #interestingFacts div p {
     color: #DBDBDB;
+}
+
+@media screen and (min-width: 1600px) {
+    #interestingFacts {
+        border: 2px solid #494949;
+        padding: 15px;
+    }
+
+    #interestingFacts div {
+        padding: 10px;
+    }
+
+    #interestingFacts h4 {
+        margin: 20px 0;
+        font-size: 1.3em;
+    }
+
+    #interestingFacts div p {
+        font-size: 1.2em;
+    }
 }
 
 #gallery {
@@ -325,13 +435,29 @@ html, body {
     height: 100%;
 }
 
+@media screen and (min-width: 1600px) {
+    #gallery {
+        border: 2px solid #494949;
+        padding: 15px;
+    }
 
+    #gallery p {
+        font-size: 1.2em;
+    }
 
+    #gallery h4 {
+        font-size: 1.3em;
+    }
 
+    .itemGallary {
+        height: 150px;
+        margin: 5px;
+    }
 
-
-
-
+    #videoPlayer {
+        border: 2px solid #494949;
+    }
+}
 
 
 
@@ -348,7 +474,6 @@ footer {
 
 }
 
-
 footer a {
     color: white;
 }
@@ -361,3 +486,9 @@ footer ul {
     grid-column: 2 / span 2;
     padding-left: 0;
 }
+
+@media screen and (min-width: 1600px) and (max-width: 1920px){}
+@media screen and (min-width: 1200px) and (max-width: 1600px){}
+@media screen and (max-width: 992px){}
+@media screen and (max-width: 767px){}
+@media screen and (max-width: 480px){}
