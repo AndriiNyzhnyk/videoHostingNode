@@ -1,23 +1,49 @@
 window.onload = function () {
-    // scripts for Header slider
-    let monitor = document.getElementById('sliderMonitor');
-    let visibleWindow = document.getElementById('visibleWindow');
-    let items = document.getElementsByClassName('items');
-    let sliderWidth = items[0].offsetWidth;
-    let sliderLength = items.length;
+    let navWidth = document.querySelector('nav').offsetWidth;
+    console.log(navWidth);
 
-    monitor.style.width = `${sliderWidth}px`;
-    visibleWindow.style.width = `${(sliderWidth * sliderLength) + (sliderLength * 4)}px`;
+    let bestFilm = document.getElementById('bestFilm');
+    bestFilm.style.width = navWidth + 'px';
+
+    let visibleWindow = document.getElementById('visibleWindow');
+    visibleWindow.style.width = navWidth * 0.9 + 'px';
+
+
+    let items = document.getElementsByClassName('items');
+    for(let i = 0; i < items.length; i++) {
+        items[i].style.width = navWidth * 0.9 + 'px';
+    }
+
+    // let sliders = document.getElementsByClassName('slider');
+    // console.log(sliders);
+
+    let imgs = document.querySelectorAll('.slider img');
+    console.log(imgs);
+    for(let i = 0; i < imgs.length; i++) {
+        imgs[i].style.width = visibleWindow.offsetWidth * 0.18 + 'px';
+    }
+
+    let sliderMonitor = document.getElementById('sliderMonitor');
+    sliderMonitor.style.width = navWidth * 3 + 500 + 'px';
+
+    visibleWindow.style.height = visibleWindow.offsetHeight - 21 + 'px';
+
+
+    let wrapItemsSlider = document.getElementsByClassName('wrapItemsSlider');
+    let wrapSliderWidth = wrapItemsSlider[0].offsetWidth;
+    let countPageSlider = wrapItemsSlider.length;
+
+    //---------------
     let trust = true;
     let i = 1;
 
     function slider() {
-        if(i > 0 && i < sliderLength && trust === true) {
+        if(i > 0 && i < countPageSlider && trust === true) {
             shiftLeft();
             return;
         }
 
-        if(i > 0 && i <= sliderLength && trust === false) {
+        if(i > 0 && i <= countPageSlider && trust === false) {
             shiftRight();
         }
 
@@ -29,16 +55,16 @@ window.onload = function () {
     // setTimeout(slider, 7000);
 
     function shiftLeft() {
-        items[i].style.marginLeft = `${-sliderWidth - 5}px`;
+        wrapItemsSlider[i].style.marginLeft = `${-wrapSliderWidth - 4}px`;
         i++;
-        if(i >= sliderLength) {
+        if(i >= countPageSlider) {
             trust = false;
             i--;
         }
     }
 
     function shiftRight() {
-        items[i].style.marginLeft = `${sliderWidth - 5}px`;
+        wrapItemsSlider[i].style.marginLeft = `${wrapSliderWidth - 4}px`;
         i--;
 
         if(i === 0) {
@@ -52,7 +78,7 @@ window.onload = function () {
     let shiftR = document.getElementById('shiftRight');
 
     shiftL.onclick = () => {
-        if(i > 0 && i < sliderLength) {
+        if(i > 0 && i < countPageSlider) {
             clearInterval(interval);
             shiftRight();
             interval = setInterval( slider, 7000);
@@ -60,13 +86,13 @@ window.onload = function () {
     };
 
     shiftR.onclick = () => {
-        if (i > 0 && i < sliderLength) {
+        if (i > 0 && i < countPageSlider) {
             clearInterval(interval);
             shiftLeft();
             interval = setInterval( slider, 7000);
         }
     };
-    // end scripts for Header slider
+
 
     // add EventListener on slider
     let sliders = document.getElementsByClassName('slider');
