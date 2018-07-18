@@ -61,9 +61,7 @@ header {
     grid-row: 1 / 13;
 }
 
-
-
-/*--------------*/
+/* style for main menu*/
 nav {
     grid-column: 2 / 12;
     grid-row: 1 / 2;
@@ -263,20 +261,27 @@ nav {
 
 .shiftSlider {
     position: absolute;
-    background-color: red;
-    padding: 5px 0;
-    width: 20px;
-    height: 20px;
+    /*background-color: red;*/
+    /*padding: 5px 0;*/
+    /*width: 20px;*/
+    /*height: 20px;*/
+}
+
+.shiftSlider img {
+    width: 25px;
+    height: 25px;
 }
 
 #shiftLeft {
     top: 50%;
     left: 10px;
+    transform: translate(0, -50%);
 }
 
 #shiftRight {
     top: 50%;
     right: 10px;
+    transform: translate(0, -50%);
 }
 
 /* style for content*/
