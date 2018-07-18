@@ -44,6 +44,26 @@ a {
     border-radius: 7px;
 }
 
+@media screen and (min-width: 1600px) {
+    #logo h4 {
+        margin: 22px 0;
+        font-size: 1.5em;
+    }
+
+    #search {
+        grid-column: 3 / span 3;
+        margin: 22px 0;
+    }
+
+    #search input {
+        width: 100%;
+        box-sizing: border-box;
+        height: 35px;
+        border-radius: 7px;
+        font-size: 1.3em;
+    }
+}
+
 /*style for header*/
 header {
     display: grid;
@@ -187,6 +207,35 @@ nav {
     }
 }
 
+@media screen and (min-width: 1600px) {
+    header {
+        grid-template-rows: repeat(12, 70px) 50px;
+    }
+
+    #backgroundImg {
+        grid-row: 1 / 14;
+    }
+
+    #menu li a {
+        padding: 5px 40px;
+        height: 50px;
+        font:600 16px/55px arial;
+        border-left: 2px solid rgba(255, 255, 255, 0.08);
+        border-right: 2px solid rgba(0, 0, 0, 0.4);
+    }
+
+    #menu li:hover .sub-menu a {
+        height: 45px;
+        line-height: 50px;
+        box-shadow: 0 4px 4px rgba(0,0,0,0.1);
+    }
+
+    #menu .sub-menu li a {
+        min-width: 210px;
+        padding: 0 15px;
+    }
+}
+
 /*style for slide best films*/
 #wrapSlider {
     grid-column: 2 / 12;
@@ -230,6 +279,7 @@ nav {
     margin: 0 auto;
     display: block;
     overflow: hidden;
+    background-color: #041D28;
     border: 10px solid #041D28;
 }
 
@@ -280,6 +330,46 @@ nav {
     transform: translate(0, -50%);
 }
 
+@media screen and (min-width: 1600px) {
+    #bestFilm {
+        height: 580px;
+    }
+
+    #titleBestFilms h1 {
+        font-size: 2em;
+        margin: 20px 0 35px 55px;
+        padding: 15px;
+    }
+
+    .nameFilmsSlider {
+        padding: 15px 0;
+    }
+
+    .nameFilmsSlider p {
+        font-size: 1em;
+        margin: 7px 0;
+    }
+
+    #visibleWindow {
+        /*padding: 10px;*/
+        background-color: #041D28;
+        border: 20px solid #041D28;
+
+    }
+
+    .slider img {
+        width: 200px;
+        height: 350px;
+    }
+
+
+    .shiftSlider img {
+        width: 35px;
+        height: 35px;
+    }
+
+}
+
 /* style for content*/
 #content {
     display: grid;
@@ -311,6 +401,27 @@ nav {
 }
 /*end style for infoBlock */
 
+@media screen and (min-width: 1600px) {
+    #content {
+        grid-template-rows: repeat(12, 60px);
+    }
+
+    #infoBlock {
+        border: 2px solid #494949;
+    }
+
+    #titleInfoBlock {
+        padding: 1px 25px;
+        font-size: 1.3em;
+    }
+
+    #textInfoBlock {
+        padding: 10px 25px;
+        text-align: justify;
+        font-size: 1.3em;
+    }
+}
+
 
 /*footer*/
 footer {
@@ -334,4 +445,10 @@ footer li {
 footer ul {
     grid-column: 2 / span 2;
     padding-left: 0;
+}
+
+@media screen and (min-width: 1600px) {
+    footer {
+       font-size: 1.2em;
+    }
 }

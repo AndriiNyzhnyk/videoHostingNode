@@ -31,8 +31,7 @@ window.onload = function () {
         let sliderMonitor = document.getElementById('sliderMonitor');
         sliderMonitor.style.width = navWidth * 3 + 500 + 'px';
 
-        visibleWindow.style.height = visibleWindow.offsetHeight - 21 + 'px';
-
+        visibleWindow.style.height = sliderMonitor.offsetHeight + 'px';
 
         //code that provide work slider
         let wrapItemsSlider = document.getElementsByClassName('wrapItemsSlider');
