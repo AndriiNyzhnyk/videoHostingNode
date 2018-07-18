@@ -3,24 +3,29 @@ window.onload = function () {
     let adaptiveSlider = () => {
         let navWidth = document.querySelector('nav').offsetWidth;
 
+        //set style for bestFilm
         let bestFilm = document.getElementById('bestFilm');
         bestFilm.style.width = navWidth + 'px';
 
+
+        const someWidth1 = navWidth * 0.9 + 'px';
+        //set style for visibleWindow width = (90% of width bestFilm)
         let visibleWindow = document.getElementById('visibleWindow');
-        visibleWindow.style.width = navWidth * 0.9 + 'px';
+        visibleWindow.style.width = someWidth1;
 
 
+        //width block items must be equal width block visibleWindow
         let items = document.getElementsByClassName('items');
         for(let i = 0; i < items.length; i++) {
-            items[i].style.width = navWidth * 0.9 + 'px';
+            items[i].style.width = someWidth1;
         }
 
-        // let sliders = document.getElementsByClassName('slider');
-        // console.log(sliders);
 
+        //set style for images in slider
+        const someWidth2 = visibleWindow.offsetWidth * 0.18 + 'px';
         let imgs = document.querySelectorAll('.slider img');
         for(let i = 0; i < imgs.length; i++) {
-            imgs[i].style.width = visibleWindow.offsetWidth * 0.18 + 'px';
+            imgs[i].style.width = someWidth2;
         }
 
         let sliderMonitor = document.getElementById('sliderMonitor');
@@ -29,6 +34,7 @@ window.onload = function () {
         visibleWindow.style.height = visibleWindow.offsetHeight - 21 + 'px';
 
 
+        //code that provide work slider
         let wrapItemsSlider = document.getElementsByClassName('wrapItemsSlider');
         let wrapSliderWidth = wrapItemsSlider[0].offsetWidth;
         let countPageSlider = wrapItemsSlider.length;
@@ -93,7 +99,7 @@ window.onload = function () {
         };
     };
 
-    // add EventListener on slider
+    // add EventListener on slider for redirect to some movies
     let sliders = document.getElementsByClassName('slider');
 
     for (let i = 0; i < sliders.length; i++) {
