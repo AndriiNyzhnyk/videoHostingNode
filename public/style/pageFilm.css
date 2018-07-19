@@ -211,6 +211,16 @@ html, body {
     height: 100%;
 }
 
+#downloadFilm {
+    grid-column: 1 / 8;
+    grid-row: 7 / 8;
+    padding: 5px;
+    background-color: green;
+    margin: 10px;
+    text-align: center;
+    font-size: 1.1em;
+}
+
 #textInfoLeftSidebar {
     grid-column: 8 / 25;
     grid-row: 1 / 7;

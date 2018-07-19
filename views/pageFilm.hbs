@@ -28,6 +28,10 @@
                     <img src={{sourseImg}} alt={{nameEn}}>
                 </div>
 
+                <div id="downloadFilm">
+                    Скачати фільм
+                </div>
+
                 <div id="textInfoLeftSidebar">
                     <div>
                         <ul id="infoLeftUl1">
@@ -204,6 +208,24 @@
                 let heightItem = textNewFilm[i].offsetHeight;
                 textNewFilm[i].style.marginTop = -heightItem - 19 + 'px';
             }
+
+            // script for download film
+            let downloadFilm = document.getElementById('downloadFilm');
+            let windowVideoPlayer = document.getElementById('windowVideoPlayer');
+
+            downloadFilm.addEventListener('click', () => {
+                let source = windowVideoPlayer.baseURI;
+
+                if(source !== '') {
+                    source = source.substring(28);
+                    console.log(source);
+                    window.location.href = '/download/' + source;
+                } else {
+                    console.error('not source video');
+                }
+
+            });
+
         }
 
     </script>

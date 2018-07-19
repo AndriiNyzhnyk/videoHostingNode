@@ -110,3 +110,7 @@ module.exports.getOptionsMainPage = () => {
 };
 
 module.exports.getOptionsMoviePage = createOptionsForMoviePage;
+
+module.exports.allMovies = () => {
+    return allMovies;
+};

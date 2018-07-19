@@ -21,6 +21,18 @@ module.exports = (app, urlencodedParser, jsonParser) => {
         })
     });
 
+    app.get('/download/:movie', (req, res) => {
+        let movie = '/films/' + req.params['movie'] + '.mp4';
+        let allMovies = db.allMovies();
+
+        for(let i = 0; i < allMovies.length; i++) {
+            if(movie === allMovies[i].sourseVideo) {
+                res.download(__dirname + '/public' + allMovies[i].sourseVideo);
+                break;
+            }
+        }
+    });
+
     // routes for stream video
     app.get('/video/:part1/:part2.:part3', (req, res) => {
         let part1 = req.params['part1'];
