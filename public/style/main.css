@@ -17,13 +17,18 @@ a {
 
 /*style for search block*/
 #topHeader {
+    display: -ms-grid;
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: auto;
+    -ms-grid-columns: (1fr)[12];
+        grid-template-columns: repeat(12, 1fr);
+    -ms-grid-rows: auto;
+        grid-template-rows: auto;
     background-color: #041D28;
 }
 
 #logo {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
     grid-column: 2 / span 1;
 }
 
@@ -33,6 +38,8 @@ a {
 }
 
 #search {
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 3;
     grid-column: 3 / span 3;
     margin: 15px 0;
 }
@@ -51,6 +58,8 @@ a {
     }
 
     #search {
+        -ms-grid-column: 3;
+        -ms-grid-column-span: 3;
         grid-column: 3 / span 3;
         margin: 22px 0;
     }
@@ -66,24 +75,33 @@ a {
 
 /*style for header*/
 header {
+    display: -ms-grid;
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(12, 50px);
+    -ms-grid-columns: (1fr)[12];
+        grid-template-columns: repeat(12, 1fr);
+    -ms-grid-rows: (50px)[12];
+        grid-template-rows: repeat(12, 50px);
 }
 
 #backgroundImg {
     background: url(/img/bg1.jpg) no-repeat;
-    moz-background-size: 100%; /* Firefox 3.6+ */
-    -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
-    -o-background-size: 100%; /* Opera 9.6+ */
+    moz-background-size: 100%; /* Firefox 3.6+ */ /* Safari 3.1+ и Chrome 4.0+ */ /* Opera 9.6+ */
     background-size: 100%; /* other */
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 12;
     grid-column: 1 / 13;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 12;
     grid-row: 1 / 13;
 }
 
 /* style for main menu*/
 nav {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 10;
     grid-column: 2 / 12;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
     grid-row: 1 / 2;
 }
 
@@ -209,10 +227,13 @@ nav {
 
 @media screen and (min-width: 1600px) {
     header {
-        grid-template-rows: repeat(12, 70px) 50px;
+        -ms-grid-rows: (70px)[12] 50px;
+            grid-template-rows: repeat(12, 70px) 50px;
     }
 
     #backgroundImg {
+        -ms-grid-row: 1;
+        -ms-grid-row-span: 13;
         grid-row: 1 / 14;
     }
 
@@ -238,7 +259,11 @@ nav {
 
 /*style for slide best films*/
 #wrapSlider {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 10;
     grid-column: 2 / 12;
+    -ms-grid-row: 3;
+    -ms-grid-row-span: 9;
     grid-row: 3 / 12;
     display: block;
     position: relative;
@@ -321,13 +346,15 @@ nav {
 #shiftLeft {
     top: 50%;
     left: 10px;
-    transform: translate(0, -50%);
+    -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
 }
 
 #shiftRight {
     top: 50%;
     right: 10px;
-    transform: translate(0, -50%);
+    -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
 }
 
 @media screen and (min-width: 1600px) {
@@ -372,14 +399,21 @@ nav {
 
 /* style for content*/
 #content {
+    display: -ms-grid;
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(12, 50px);
+    -ms-grid-columns: (1fr)[12];
+        grid-template-columns: repeat(12, 1fr);
+    -ms-grid-rows: (50px)[12];
+        grid-template-rows: repeat(12, 50px);
 }
 
 /*style for infoBlock*/
 #infoBlock {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 10;
     grid-column: 2 / 12;
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 9;
     grid-row: 2 / 11;
     width: 100%;
     height: 100%;
@@ -403,7 +437,8 @@ nav {
 
 @media screen and (min-width: 1600px) {
     #content {
-        grid-template-rows: repeat(12, 60px);
+        -ms-grid-rows: (60px)[12];
+            grid-template-rows: repeat(12, 60px);
     }
 
     #infoBlock {
@@ -428,9 +463,12 @@ footer {
     background-color: #0C151D;
     color: white;
     /*padding: 7px;*/
+    display: -ms-grid;
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: auto;
+    -ms-grid-columns: (1fr)[12];
+        grid-template-columns: repeat(12, 1fr);
+    -ms-grid-rows: auto;
+        grid-template-rows: auto;
 
 }
 
@@ -443,6 +481,8 @@ footer li {
 }
 
 footer ul {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 2;
     grid-column: 2 / span 2;
     padding-left: 0;
 }
