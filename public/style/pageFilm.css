@@ -99,7 +99,7 @@ nav {
 
 #menu li a {
     display:table;
-    padding: 0 20px;
+    padding: 0 23px;
     height: 50px;
     text-align: center;
     font:600 13px/50px arial;
@@ -173,7 +173,6 @@ nav {
     display: block;
 }
 
-
 @media screen and (max-width : 760px){
     .sub-menu {
         position: static;
@@ -196,6 +195,27 @@ nav {
 
     #menu  {
         width: 100%;
+    }
+}
+
+@media screen and (min-width: 1600px){
+    #menu li a {
+        padding: 5px 40px;
+        height: 50px;
+        font:600 16px/55px arial;
+        border-left: 2px solid rgba(255, 255, 255, 0.08);
+        border-right: 2px solid rgba(0, 0, 0, 0.4);
+    }
+
+    #menu li:hover .sub-menu a {
+        height: 45px;
+        line-height: 50px;
+        box-shadow: 0 4px 4px rgba(0,0,0,0.1);
+    }
+
+    #menu .sub-menu li a {
+        min-width: 210px;
+        padding: 0 15px;
     }
 }
 
@@ -227,13 +247,15 @@ nav {
 @media screen and (min-width: 1600px){
     #content {
         -ms-grid-rows:  100px 70px 90px
-        (100px)[10]
+        (120px)[4]
+        (110px)[6]
         (150px)[3]
         (100px)[4]
         (130px)[6]
         (120px)[4];
             grid-template-rows:  100px 70px 90px
-        repeat(10, 100px)
+        repeat(4, 120px)
+        repeat(6, 110px)
         repeat(3, 150px)
         repeat(4, 100px)
         repeat(6, 130px)
@@ -412,6 +434,7 @@ nav {
     margin: 10px;
     text-align: center;
     font-size: 1.1em;
+    cursor: pointer;
 }
 
 #textInfoLeftSidebar {
@@ -472,7 +495,7 @@ nav {
 @media screen and (min-width: 1600px) {
     #contentLeftSideBar {
         -ms-grid-rows: (50px)[8];
-            grid-template-rows: repeat(8, 50px);
+            grid-template-rows: repeat(8, 55px);
         padding: 10px 0 0 0;
 
     }
@@ -485,8 +508,20 @@ nav {
 
     }
 
+    #downloadFilm {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 7;
+        grid-column: 1 / 8;
+        -ms-grid-row: 8;
+        -ms-grid-row-span: 1;
+        grid-row: 8 / 9;
+        padding: 5px;
+        margin: 10px 15px;
+        font-size: 1.2em;
+    }
+
     #textInfoLeftSidebar ul li {
-        padding: 5px 0;
+        padding: 7px 0;
         font-size: 1.2em;
     }
 }
