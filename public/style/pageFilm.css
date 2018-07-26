@@ -198,7 +198,7 @@ nav {
     }
 }
 
-@media screen and (min-width: 1600px){
+@media screen and (min-width: 1600px) {
     #menu li a {
         padding: 5px 40px;
         height: 50px;
@@ -462,7 +462,7 @@ nav {
 #textInfoLeftSidebar ul li {
     list-style-type: none;
     /*margin: 5px 0;*/
-    padding: 5px 0;
+    padding: 5px;
     font-size: 1em;
 }
 
