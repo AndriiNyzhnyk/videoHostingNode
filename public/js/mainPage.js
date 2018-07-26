@@ -1,6 +1,25 @@
 window.onload = function () {
+
+    // code for search input
+    document.querySelector('input').addEventListener('keydown', function(e) {
+        if (e.keyCode === 13) {
+            searchMovie(this.value);
+        }
+    });
+
+    document.getElementById('searchIcon').addEventListener('click', function (e) {
+        let value = document.querySelector('input').value;
+        searchMovie(value);
+    });
+
+    function searchMovie(value) {
+        if(value !== '') {
+            console.log('searchMovie');
+            console.log(value);
+        }
+    }
     
-    let adaptiveSlider = () => {
+    function adaptiveSlider() {
         let navWidth = document.querySelector('nav').offsetWidth;
 
         //set style for bestFilm
