@@ -21,6 +21,13 @@ module.exports = (app, urlencodedParser, jsonParser) => {
         })
     });
 
+    app.get('/searchMovie/:movie', (req, res) => {
+        let movie = req.params['movie'];
+        console.log(movie);
+        res.send('hello world');
+
+    });
+
     app.get('/download/:movie', (req, res) => {
         let movie = '/films/' + req.params['movie'] + '.mp4';
         let allMovies = db.allMovies();

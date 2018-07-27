@@ -16,8 +16,7 @@ window.onload = function () {
 
     function searchMovie(value) {
         if(value !== '') {
-            console.log('searchMovie');
-            console.log(value);
+            window.location.href = `searchMovie/${value}`;
         }
     }
     
@@ -117,7 +116,7 @@ window.onload = function () {
                 interval = setInterval( slider, 7000);
             }
         };
-    };
+    }
 
     // add EventListener on slider for redirect to some movies
     let sliders = document.getElementsByClassName('slider');
