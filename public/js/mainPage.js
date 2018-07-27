@@ -1,14 +1,16 @@
 window.onload = function () {
 
     // code for search input
-    document.querySelector('input').addEventListener('keydown', function(e) {
+    let searchInput = document.querySelector('input');
+
+    searchInput.addEventListener('keydown', function(e) {
         if (e.keyCode === 13) {
             searchMovie(this.value);
         }
     });
 
     document.getElementById('searchIcon').addEventListener('click', function (e) {
-        let value = document.querySelector('input').value;
+        let value = searchInput.value;
         searchMovie(value);
     });
 
