@@ -24,7 +24,8 @@ module.exports = (app, urlencodedParser, jsonParser) => {
     app.get('/searchMovie/:movie', (req, res) => {
         let movie = req.params['movie'];
         console.log(movie);
-        res.send('hello world');
+        // res.send('hello world');
+        res.sendFile(__dirname + '/searchPageReact/index.html');
 
     });
 
