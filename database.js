@@ -2,13 +2,14 @@ const  mongoClient = require('mongodb').MongoClient;
 const  url = 'mongodb://localhost:27017/moviesdb';
 
 let allMovies;
+let filterListMovies;
 let optionsMainPage;
 
 async function initRequest() {
     try {
         allMovies = await getAllMovies();
         // console.log(allMovies);
-        let filterListMovies = await filterMovies(allMovies);
+        filterListMovies = await filterMovies(allMovies);
         // console.log(filterListMovies);
         optionsMainPage = await createOptionsMainPage(filterListMovies);
         // console.log(options);
@@ -113,4 +114,8 @@ module.exports.getOptionsMoviePage = createOptionsForMoviePage;
 
 module.exports.allMovies = () => {
     return allMovies;
+};
+
+module.exports.getMoviesForSearch = () => {
+    return filterListMovies;
 };

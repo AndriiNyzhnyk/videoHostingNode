@@ -10,9 +10,10 @@ class ItemsList extends React.Component {
     }
 
     filterList(text){
-        var filteredList = this.props.data.items.filter(function(item){
+        let filteredList = this.props.data.items.filter(function(item){
             return item.toLowerCase().search(text.toLowerCase())!== -1;
         });
+
         this.setState({items: filteredList});
     }
 

@@ -29,6 +29,10 @@ module.exports = (app, urlencodedParser, jsonParser) => {
 
     });
 
+    app.get('/getMoviesForSearch', (req, res) => {
+        res.send(db.getMoviesForSearch());
+    });
+
     app.get('/download/:movie', (req, res) => {
         let movie = '/films/' + req.params['movie'] + '.mp4';
         let allMovies = db.allMovies();

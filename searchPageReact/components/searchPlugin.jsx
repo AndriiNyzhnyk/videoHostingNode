@@ -1,7 +1,6 @@
 const React = require('react');
 
-class SearchPlugin extends React.Component{
-
+class SearchPlugin extends React.Component {
     constructor(props){
         super(props);
         this.onTextChanged = this.onTextChanged.bind(this);
@@ -13,7 +12,7 @@ class SearchPlugin extends React.Component{
     }
 
     render() {
-        return <input placeholder="Поиск" onChange={this.onTextChanged} />;
+        return <input placeholder="Пошук" onChange={this.onTextChanged} />;
     }
 }
 
