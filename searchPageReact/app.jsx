@@ -4,9 +4,11 @@ const ItemsList = require('./components/itemsList.jsx');
 const axios = require('axios');
 
 class Main extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state = { title: "Список Фільмів", items: [] };
+        this.state = { title: "Список Фільмів",
+            serverResponse: false,
+            items: [] };
     }
 
     componentDidMount() {
@@ -17,7 +19,7 @@ class Main extends React.Component {
                 data.push(response.data[i][0] + ' (' + response.data[i][1] + ')');
             }
 
-            this.setState({items: data});
+            this.setState({serverResponse: true, items: data});
         });
     };
 
@@ -25,7 +27,7 @@ class Main extends React.Component {
         if(this.state.items.length > 0) {
             return <ItemsList data={this.state} />
         } else {
-            return <h1>Нажаль пошук фільмів зараз не доступний !</h1>
+            return <h1>Завантаження даних ...</h1>
         }
 
     }
