@@ -16,7 +16,7 @@ window.onload = function () {
 
     function searchMovie(value) {
         if(value !== '') {
-            let pathSearch = 'searchMovie';
+            let pathSearch = '/searchMovie';
 
             setCookie('searchMovie', value, {
                 expires: 0,
