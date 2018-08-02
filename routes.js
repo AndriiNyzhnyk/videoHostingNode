@@ -21,12 +21,8 @@ module.exports = (app, urlencodedParser, jsonParser) => {
         })
     });
 
-    app.get('/searchMovie/:movie', (req, res) => {
-        let movie = req.params['movie'];
-        console.log(movie);
-        // res.send('hello world');
+    app.get('/searchMovie/', (req, res) => {
         res.sendFile(__dirname + '/searchPageReact/index.html');
-
     });
 
     app.get('/getMoviesForSearch', (req, res) => {
