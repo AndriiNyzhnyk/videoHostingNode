@@ -6,9 +6,11 @@ const axios = require('axios');
 class Main extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { title: "Список Фільмів",
+        this.state = {
+            title: "Список Фільмів",
             serverResponse: false,
-            items: [] };
+            items: []
+        };
     }
 
     componentDidMount() {

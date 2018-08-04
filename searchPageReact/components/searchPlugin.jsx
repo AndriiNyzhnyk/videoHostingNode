@@ -4,6 +4,11 @@ class SearchPlugin extends React.Component {
     constructor(props){
         super(props);
         this.onTextChanged = this.onTextChanged.bind(this);
+
+        this.state = {
+            text: this.props.valueInput,
+            counter: 0
+        };
     }
 
     onTextChanged(e){
@@ -12,7 +17,16 @@ class SearchPlugin extends React.Component {
     }
 
     render() {
-        return <input placeholder="Пошук" onChange={this.onTextChanged} />;
+        if(this.state.counter === 0) {
+            this.props.filter(this.state.text);
+
+            this.setState({counter: 1});
+
+            return <input placeholder="Пошук" onChange={this.onTextChanged} value={this.state.text} />;
+        } else {
+            return <input placeholder="Пошук" onChange={this.onTextChanged} />;
+        }
+
     }
 }
 
