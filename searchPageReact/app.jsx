@@ -6,6 +6,7 @@ const axios = require('axios');
 class Main extends React.Component {
     constructor(props) {
         super(props);
+
         this.state = {
             title: "Список Фільмів",
             serverResponse: false,
@@ -15,15 +16,20 @@ class Main extends React.Component {
 
     componentDidMount() {
         axios.get('/getMoviesForSearch').then((response) => {
-            let data = [];
+            let movies = [];
 
             for(let i = 0; i < response.data.length; i++) {
-                data.push(response.data[i][0] + ' (' + response.data[i][1] + ')');
+                movies.push( [ (response.data[i][0] + ' (' + response.data[i][1] + ')'), response.data[i][2] ]);
+
             }
 
-            this.setState({serverResponse: true, items: data});
+            this.setState({
+                serverResponse: true,
+                items: movies
+            });
         });
     };
+
 
     render() {
         if(this.state.items.length > 0) {

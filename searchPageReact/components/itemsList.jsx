@@ -6,6 +6,7 @@ const SearchPlugin = require('./searchPlugin.jsx');
 class ItemsList extends React.Component {
     constructor(props){
         super(props);
+
         this.state = {
             items: this.props.data.items
         };
@@ -15,7 +16,10 @@ class ItemsList extends React.Component {
 
     filterList(text){
         let filteredList = this.props.data.items.filter( (item) => {
-            return item.toLowerCase().search(text.toLowerCase())!== -1;
+            if(item[0].toLowerCase().search(text.toLowerCase())!== -1) {
+                return item;
+            }
+
         });
 
         this.setState({items: filteredList});
@@ -32,17 +36,27 @@ class ItemsList extends React.Component {
         let valueInput = this.getCookie('searchMovie');
 
         if(this.state.items.length > 0 && this.props.data.serverResponse === true) {
-            return(
+            return (
                 <Fragment>
                     <h2>{this.props.data.title}</h2>
-                    <SearchPlugin filter={this.filterList} valueInput={valueInput} />
+
+                    <SearchPlugin filter={this.filterList} valueInput={valueInput}/>
+
                     <ul>
                         {
-                            this.state.items.map(function(item){
-                                return <li key={item}>{item}</li>
+                            this.state.items.map( (item) => {
+                                return (
+                                    <li key={item}>
+                                        <span>
+                                            <img src={item[1]} alt="img" />
+                                            <p>{item[0]}</p>
+                                        </span>
+                                    </li>
+                                )
                             })
                         }
                     </ul>
+
                 </Fragment>
             );
 
