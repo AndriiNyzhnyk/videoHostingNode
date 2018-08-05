@@ -32,6 +32,12 @@ class ItemsList extends React.Component {
         return matches ? decodeURIComponent(matches[1]) : undefined;
     }
 
+    redirectMovie(e) {
+        let src = e.target.attributes.src.value;
+        let movie = src.slice(12, -4);
+        window.location.href = `movie/${movie}`;
+    }
+
     render() {
         let valueInput = this.getCookie('searchMovie');
 
@@ -42,20 +48,18 @@ class ItemsList extends React.Component {
 
                     <SearchPlugin filter={this.filterList} valueInput={valueInput}/>
 
-                    <ul>
+                    <div id="searchMonitor">
                         {
                             this.state.items.map( (item) => {
                                 return (
-                                    <li key={item}>
-                                        <span>
-                                            <img src={item[1]} alt="img" />
-                                            <p>{item[0]}</p>
-                                        </span>
-                                    </li>
+                                    <div className="item" key={item} onClick={this.redirectMovie}>
+                                        <img src={item[1]} alt="img" />
+                                        <p>{item[0]}</p>
+                                    </div>
                                 )
                             })
                         }
-                    </ul>
+                    </div>
 
                 </Fragment>
             );

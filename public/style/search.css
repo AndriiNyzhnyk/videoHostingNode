@@ -1,0 +1,20 @@
+#searchMonitor {
+    margin: 15px 0;
+    padding: 7px;
+}
+
+.item {
+    height: 300px;
+    margin-top: 15px;
+    padding: 5px;
+    border: 5px solid silver;
+}
+
+.item img {
+    width: 200px;
+    height: 250px;
+}
+
+.item p {
+    font-size: 1em;
+}
