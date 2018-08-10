@@ -22,9 +22,13 @@ class SearchPlugin extends React.Component {
 
             this.setState({counter: 1});
 
-            return <input placeholder="Пошук" onChange={this.onTextChanged} value={this.state.text} />;
+            return (
+                <input placeholder="Пошук" onChange={this.onTextChanged} value={this.state.text} />
+            );
         } else {
-            return <input placeholder="Пошук" onChange={this.onTextChanged} />;
+            return (
+                <input placeholder="Пошук" onChange={this.onTextChanged} />
+            );
         }
 
     }

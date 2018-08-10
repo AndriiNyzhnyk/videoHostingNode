@@ -1,6 +1,7 @@
-import {Fragment} from "react";
+// import {Fragment} from "react";
 
 const React = require('react');
+const Fragment = React.Fragment;
 const SearchPlugin = require('./searchPlugin.jsx');
 
 class ItemsList extends React.Component {
@@ -44,9 +45,11 @@ class ItemsList extends React.Component {
         if(this.state.items.length > 0 && this.props.data.serverResponse === true) {
             return (
                 <Fragment>
-                    <h2>{this.props.data.title}</h2>
+                    <header>
+                        <SearchPlugin filter={this.filterList} valueInput={valueInput}/>
+                        <h3 id="textTitle">{this.props.data.title}</h3>
+                    </header>
 
-                    <SearchPlugin filter={this.filterList} valueInput={valueInput}/>
 
                     <div id="searchMonitor">
                         {
@@ -67,9 +70,11 @@ class ItemsList extends React.Component {
         } else {
             return(
                 <Fragment>
-                    <h2>{this.props.data.title}</h2>
-                    <SearchPlugin filter={this.filterList} />
-                    <h3>За вашим запитом нічого не знайдено !</h3>
+                    <header>
+                        <SearchPlugin filter={this.filterList} />
+                        <h3 id="textTitle">{this.props.data.title}</h3>
+                    </header>
+                    <p id="notResult">За вашим запитом нічого не знайдено !</p>
                 </Fragment>
             );
         }
