@@ -46,11 +46,19 @@ header input {
 
 .item {
     min-height: 320px;
-    margin: 15px 1px;
+    margin: 20px 1px;
     padding: 5px;
     border: 1px solid #494949;
     background-color: #0C151D;
     width: 230px;
+}
+
+.item:hover {
+    webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    cursor: pointer;
+    transition: 300ms;
 }
 
 .item img {
