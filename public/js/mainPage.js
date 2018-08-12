@@ -84,7 +84,7 @@ window.onload = function () {
 
 
         //set style for images in slider
-        const someWidth2 = visibleWindow.offsetWidth * 0.18 + 'px';
+        const someWidth2 = visibleWindow.offsetWidth * 0.19 + 'px';
         let imgs = document.querySelectorAll('.slider img');
         for(let i = 0; i < imgs.length; i++) {
             imgs[i].style.width = someWidth2;
