@@ -340,6 +340,10 @@ nav {
     width: 1000px;
 }
 
+.slider:hover {
+    cursor: pointer;
+}
+
 .slider img {
     width: 185px;
     height: 250px;
