@@ -15,6 +15,7 @@ a {
     background-color: #091016;
 }
 
+/*style for search block*/
 #topHeader {
     display: -ms-grid;
     display: grid;
@@ -60,7 +61,30 @@ a {
     cursor: pointer;
 }
 
-/* style for content*/
+@media screen and (max-width: 992px) {
+    #logo h4 {
+        margin: 12px 0;
+        font-size: 1.1em;
+    }
+
+    #search {
+        margin: 12px 0;
+    }
+
+    #search input {
+        width: 100%;
+        height: 25px;
+        border-radius: 5px;
+    }
+
+    #searchIcon {
+        width: 20px;
+        height: 20px;
+    }
+
+
+
+    /* style for content*/
 
 #content {
     display: -ms-grid;
@@ -958,6 +982,12 @@ footer ul {
 @media screen and (max-width: 992px) {
     footer ul li {
         font-size: 0.9em;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    footer {
+        font-size: 1.2em;
     }
 }
 
