@@ -25,10 +25,6 @@ app.use(cookieParser(security.cookieSecret));
 
 require('./routes.js')(app, urlencodedParser, jsonParser);
 
-// test send email
-require('./sendEmail')();
-
-
 
 app.listen(app.get('port'), () => {
     console.log( 'Express запущенний на http://localhost:' +

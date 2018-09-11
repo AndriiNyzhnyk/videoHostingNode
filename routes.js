@@ -3,6 +3,7 @@ const streamVideo = require('./streamVideo');
 const security = require('./security');
 const securityKey = require('./security/securityKey');
 const dataDbControllers = require('./database/controller/dataDb');
+const sendEmail = require('./sendEmail');
 
 
 module.exports = (app, urlencodedParser, jsonParser) => {
@@ -80,6 +81,14 @@ module.exports = (app, urlencodedParser, jsonParser) => {
             res.status(200).send('badLoginOrPassword');
         }
         // console.log(result);
+    });
+
+    app.post('/feedback', urlencodedParser, (req, res) => {
+        if (!req.body) return res.sendStatus(400);
+
+        res.status(200).send('Дякуємо за ваш відгук !');
+
+        sendEmail(req.body);
     });
 
     // routes for work database

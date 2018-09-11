@@ -74,14 +74,14 @@ window.onload = function () {
         const someWidth1 = navWidth * 0.9 + 'px';
         // set style for frame width = (90% of width bestFilm)
         let frame = document.getElementsByClassName('frame');
-        console.log(frame);
+        // console.log(frame);
         frame[0].style.width = someWidth1;
 
         // set style for images in slider
         const someWidth2 = frame[0].offsetWidth * 0.19 + 'px';
-        console.log(someWidth2);
+        // console.log(someWidth2);
         let slide = document.querySelectorAll('.js_slide');
-        console.log(slide);
+        // console.log(slide);
         for(let i = 0; i < slide.length; i++) {
             slide[i].style.width = someWidth2;
         }
@@ -193,8 +193,63 @@ window.onload = function () {
     }
 
     window.addEventListener('resize', function () {
-        console.log('resize');
+        // console.log('resize');
         setWidth();
+    });
+
+
+    // send form
+    let form = document.getElementById('feedback');
+
+    function serialize(form) {
+        let field,
+            l,
+            s = [];
+
+        if (typeof form == 'object' && form.nodeName == 'FORM') {
+            var len = form.elements.length;
+
+            for (let i = 0; i < len; i++) {
+                field = form.elements[i];
+                if (field.name && !field.disabled && field.type != 'button' && field.type != 'file' && field.type != 'hidden' && field.type != 'reset' && field.type != 'submit') {
+                    if (field.type == 'select-multiple') {
+                        l = form.elements[i].options.length;
+
+                        for (let j = 0; j < l; j++) {
+                            if (field.options[j].selected) {
+                                s[s.length] = encodeURIComponent(field.name) + "=" + encodeURIComponent(field.options[j].value);
+                            }
+                        }
+                    }
+                    else if ((field.type != 'checkbox' && field.type != 'radio') || field.checked) {
+                        s[s.length] = encodeURIComponent(field.name) + "=" + encodeURIComponent(field.value);
+                    }
+                }
+            }
+        }
+        return s.join('&').replace(/%20/g, '+');
+    };
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        let data = serialize(form);
+
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", '/feedback', true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.send(data);
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState != 4) return;
+
+            if (xhr.status != 200) {
+                alert(xhr.status + ': ' + xhr.statusText);
+            } else {
+                alert(xhr.responseText);
+            }
+        }
+
     });
 
 };

@@ -1,8 +1,14 @@
 const nodemailer = require('nodemailer');
 const security = require('./security/securityKey');
 
-module.exports = () => {
-    
+module.exports = (data) => {
+    let textMessage = '';
+
+    // create string for user
+    for(key in data) {
+        textMessage += key + ' : ' + data[key] + ';\n'
+    }
+
     let transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -15,7 +21,7 @@ module.exports = () => {
         from: security.emailLogin,
         to: security.testUserEmail,
         subject: 'Sending Email using Node.js',
-        text: 'That was easy!'
+        text: textMessage
     };
     
     transporter.sendMail(mailOptions, function(error, info){
