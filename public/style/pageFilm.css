@@ -946,9 +946,6 @@ nav {
 }
 
 
-
-
-
 /*footer*/
 footer {
     position: relative;
@@ -958,9 +955,9 @@ footer {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: (1fr)[12];
-        grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(12, 1fr);
     -ms-grid-rows: auto;
-        grid-template-rows: auto;
+    grid-template-rows: auto;
 
 }
 
@@ -970,6 +967,16 @@ footer a {
 
 footer ul li {
     list-style-type: none;
+    margin-bottom: 3px;
+    display: block;
+}
+
+footer ul li:first-child {
+    text-decoration: underline;
+}
+
+footer ul li a label:hover {
+    cursor: pointer;
 }
 
 footer ul {

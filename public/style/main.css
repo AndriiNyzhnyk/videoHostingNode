@@ -556,8 +556,18 @@ footer a {
     color: white;
 }
 
-footer li {
+footer ul li {
     list-style-type: none;
+    margin-bottom: 3px;
+    display: block;
+}
+
+footer ul li:first-child {
+    text-decoration: underline;
+}
+
+footer ul li a label:hover {
+    cursor: pointer;
 }
 
 footer ul {

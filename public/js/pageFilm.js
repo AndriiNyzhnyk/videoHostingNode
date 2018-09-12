@@ -100,8 +100,9 @@ window.onload = function () {
 
     });
 
-    // send form
+    // send form on server
     let form = document.getElementById('feedback');
+    let btnClose = document.getElementsByClassName('btn-close')[0];
 
     function serialize(form) {
         let field,
@@ -151,6 +152,10 @@ window.onload = function () {
                 alert(xhr.responseText);
             }
         }
+
+        // close modal windw and reset fields form
+        btnClose.click();
+        form.reset();
 
     });
 }
