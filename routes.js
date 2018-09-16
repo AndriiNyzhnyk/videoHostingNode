@@ -86,9 +86,15 @@ module.exports = (app, urlencodedParser, jsonParser) => {
     app.post('/feedback', urlencodedParser, (req, res) => {
         if (!req.body) return res.sendStatus(400);
 
-        res.status(200).send('Дякуємо за ваш відгук !');
+        sendEmail(req.body)
+            .then( (value) => {
+                if(value === 'ok') {
+                    res.status(200).send('Дякуємо за ваш відгук !');
+                } else {
+                    res.status(400).send(value);
+                }
+            })
 
-        sendEmail(req.body);
     });
 
     // routes for work database
