@@ -1,21 +1,24 @@
-const  mongoClient = require('mongodb').MongoClient;
-const  objectId = require('mongodb').ObjectID;
-const  url = 'mongodb://localhost:27017/moviesdb';
+const mongoClient = require('mongodb').MongoClient;
+const objectId = require('mongodb').ObjectID;
 const func = require('../../functions');
+const url = 'mongodb://localhost:27017/';
+const dbName = 'moviesdb';
 
 exports.films = (cb) => {
-    mongoClient.connect(url, (err, db) => {
-        db.collection("films").find({}).toArray((err, films) => {
-            cb(err, films, db);
+    mongoClient.connect(url, (err, client) => {
+        client.db(dbName).collection("films").find({}).toArray( (err, films) => {
+            cb(err, films, client);
         });
     });
 };
 
 exports.getFilmId = (req, cb) => {
     let id = new objectId(req.params.id);
-    mongoClient.connect(url, (err, db) => {
-        db.collection("films").findOne({_id: id}, (err, film) => {
-            cb(err, film, db);
+    mongoClient.connect(url, (err, client) => {
+        client.db(dbName).collection("films").findOne({_id: id}, (err, film) => {
+
+            cb(err, film, client);
+
         });
     });
 };
@@ -25,10 +28,6 @@ exports.postAddFilm = (req, cb) => {
         return cb("empty field form");
     }
 
-    // let userName = req.body.name;
-    // let surname = req.body.surname;
-    // let userAge = req.body.age;
-    // let user = {name: userName, surname: surname, age: userAge};
     let film = {
         nameUa: req.body.nameUa,
         nameEn: req.body.nameEn,
@@ -47,9 +46,9 @@ exports.postAddFilm = (req, cb) => {
         firstRun: req.body.firstRun
     };
 
-    mongoClient.connect(url, (err, db) => {
-        db.collection("films").insertOne(film, (err, result) => {
-            cb(err, result, db, film);
+    mongoClient.connect(url, (err, client) => {
+        client.db(dbName).collection("films").insertOne(film, (err, result) => {
+            cb(err, result, client, film);
         });
     });
 };
@@ -57,9 +56,9 @@ exports.postAddFilm = (req, cb) => {
 exports.deleteFilm = (req, cb) => {
     let id = new objectId(req.params.id);
 
-    mongoClient.connect(url, (err, db) => {
-        db.collection("films").findOneAndDelete({_id: id}, (err, result) => {
-            cb(err, result, db);
+    mongoClient.connect(url, (err, client) => {
+        client.db(dbName).collection("films").findOneAndDelete({_id: id}, (err, result) => {
+            cb(err, result, client);
         });
     });
 };
@@ -70,10 +69,6 @@ exports.putFilm = (req, cb) => {
     }
 
     let id = new objectId(req.body.id);
-    // let userName = req.body.name;
-    // let surname = req.body.surname;
-    // let userAge = req.body.age;
-
 
     let film = {
         nameUa: req.body.nameUa,
@@ -93,11 +88,10 @@ exports.putFilm = (req, cb) => {
         firstRun: req.body.firstRun
     };
 
-    mongoClient.connect(url, (err, db) => {
-        db.collection("films").findOneAndUpdate({_id: id},
-            {$set: film},
-            {returnOriginal: false}, (err, result) => {
-                cb(err, result, db);
-            });
+    mongoClient.connect(url, (err, client) => {
+        client.db(dbName).collection("films").findOneAndUpdate(
+                {_id: id}, {$set: film}, {returnOriginal: false}, (err, result) => {
+                    cb(err, result, client);
+                });
     });
 };
