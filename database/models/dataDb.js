@@ -4,9 +4,10 @@ const func = require('../../functions');
 const url = 'mongodb://localhost:27017/';
 const dbName = 'moviesdb';
 const mainCollection = 'films';
+const dbOptions = {useNewUrlParser: true};
 
 exports.films = (cb) => {
-    mongoClient.connect(url, (err, client) => {
+    mongoClient.connect(url, dbOptions, (err, client) => {
         client.db(dbName).collection(mainCollection).find({}).toArray( (err, films) => {
             cb(err, films, client);
         });
@@ -15,7 +16,7 @@ exports.films = (cb) => {
 
 exports.getFilmId = (req, cb) => {
     let id = new objectId(req.params.id);
-    mongoClient.connect(url, (err, client) => {
+    mongoClient.connect(url, dbOptions, (err, client) => {
         client.db(dbName).collection(mainCollection).findOne({_id: id}, (err, film) => {
             cb(err, film, client);
         });
@@ -45,7 +46,7 @@ exports.postAddFilm = (req, cb) => {
         firstRun: req.body.firstRun
     };
 
-    mongoClient.connect(url, (err, client) => {
+    mongoClient.connect(url, dbOptions, (err, client) => {
         client.db(dbName).collection(mainCollection).insertOne(film, (err, result) => {
             cb(err, result, client, film);
         });
@@ -55,7 +56,7 @@ exports.postAddFilm = (req, cb) => {
 exports.deleteFilm = (req, cb) => {
     let id = new objectId(req.params.id);
 
-    mongoClient.connect(url, (err, client) => {
+    mongoClient.connect(url, dbOptions, (err, client) => {
         client.db(dbName).collection(mainCollection).findOneAndDelete({_id: id}, (err, result) => {
             cb(err, result, client);
         });
@@ -87,7 +88,7 @@ exports.putFilm = (req, cb) => {
         firstRun: req.body.firstRun
     };
 
-    mongoClient.connect(url, (err, client) => {
+    mongoClient.connect(url, dbOptions, (err, client) => {
         client.db(dbName).collection(mainCollection).findOneAndUpdate(
                 {_id: id}, {$set: film}, {returnOriginal: false}, (err, result) => {
                     cb(err, result, client);
