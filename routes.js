@@ -4,6 +4,7 @@ const security = require('./security');
 const securityKey = require('./security/securityKey');
 const dataDbControllers = require('./database/controller/dataDb');
 const sendEmail = require('./sendEmail');
+const upload = require('./upload');
 
 
 module.exports = (app, urlencodedParser, jsonParser) => {
@@ -81,6 +82,14 @@ module.exports = (app, urlencodedParser, jsonParser) => {
             res.status(200).send('badLoginOrPassword');
         }
         // console.log(result);
+    });
+
+    app.post('/upload', (req, res) => {
+        if (!req.files) {
+            return res.status(400).send('No files were uploaded.');
+        } else  {
+            upload(req, res);
+        }
     });
 
     app.post('/feedback', urlencodedParser, (req, res) => {

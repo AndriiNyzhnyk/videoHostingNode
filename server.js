@@ -8,6 +8,7 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const helmet = require('helmet');
 const favicon = require('serve-favicon');
+const fileUpload = require('express-fileupload');
 const security = require('./security/securityKey');
 
 const urlencodedParser = bodyParser.urlencoded({extended: true});
@@ -22,6 +23,7 @@ app.use(helmet());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(cookieParser(security.cookieSecret));
+app.use(fileUpload());
 
 require('./routes.js')(app, urlencodedParser, jsonParser);
 

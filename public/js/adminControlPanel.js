@@ -1,4 +1,30 @@
 $( document ).ready(function() {
+    // upload files
+    let uploadForm = document.forms.sendFile;
+
+    uploadForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        let formData = new FormData(uploadForm);
+
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", "/upload");
+        xhr.send(formData);
+
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState != 4) return;
+
+            if (xhr.status != 200) {
+                alert(xhr.status + ': ' + xhr.statusText);
+            } else {
+                alert(xhr.responseText);
+            }
+        }
+
+        uploadForm.reset();
+    });
+
+
     // getting all the movies
     function GetFilms() {
         $.ajax({
@@ -158,12 +184,12 @@ $( document ).ready(function() {
     });
 
     // send form to server
-    $("form").submit(function (e) {
+    $("#filmForm").submit(function (e) {
         e.preventDefault();
         let id = this.elements["id"].value;
         let data = {};
 
-        $('form').find('input, select, textarea').each(function () {
+        $("#filmForm").find('input, select, textarea').each(function () {
             if ($(this).attr('type').toLowerCase() !== 'checkbox') {
                 data[$(this).attr('name')] = this.value;
             }
