@@ -74,14 +74,17 @@ module.exports = (app, urlencodedParser, jsonParser) => {
 
         if(result === 'ok') {
             res.cookie('signedMonster', 'welcomeAdmin',
-                {signed: true,
-                maxAge: 100000,
-                httpOnly: true});
+                {
+                    signed: true,
+                    path: '/admin-control-panel',
+                    httpOnly: true
+                });
+
             res.status(200).send('/admin-control-panel');
         } else {
             res.status(200).send('badLoginOrPassword');
         }
-        // console.log(result);
+
     });
 
     app.post('/upload', (req, res) => {
