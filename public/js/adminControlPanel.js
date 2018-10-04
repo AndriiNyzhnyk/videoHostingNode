@@ -245,8 +245,13 @@ $( document ).ready(function() {
 
     // event handler on "delete" button
     $("body").on("click", ".removeLink", function () {
-        let id = $(this).data("id");
-        DeleteFilm(id);
+        let result = confirm('delete field ?');
+
+        if(result === true) {
+            let id = $(this).data("id");
+            DeleteFilm(id);
+        }
+
     });
 
     // download movies
