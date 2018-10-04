@@ -106,7 +106,7 @@ $( document ).ready(function() {
     // add movies in database
     function CreateFilm(data) {
         $.ajax({
-            url: "api/film",
+            url: "/api/film",
             contentType: "application/json",
             method: "POST",
             data: JSON.stringify({
@@ -136,7 +136,7 @@ $( document ).ready(function() {
     // edit property movies
     function EditFilm(data) {
         $.ajax({
-            url: "api/film",
+            url: "/api/film",
             contentType: "application/json",
             method: "PUT",
             data: JSON.stringify({
@@ -174,7 +174,7 @@ $( document ).ready(function() {
     // Видалення користувача
     function DeleteFilm(id) {
         $.ajax({
-            url: "api/film/" + id,
+            url: "/api/film/" + id,
             contentType: "application/json",
             method: "DELETE",
             success: function (film) {
