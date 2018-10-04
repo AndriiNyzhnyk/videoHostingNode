@@ -1,4 +1,34 @@
 $( document ).ready(function() {
+
+    // inputs
+    let inputUploadBlock = $('#showUploadBlock')[0];
+    let inputFildForDb = $('#showFildForDb')[0];
+
+    // hide blocks
+    let uploadFile = $('#uploadFile');
+    let fieldForFormDb = $('#fieldForFormDb');
+
+
+    inputUploadBlock.addEventListener('click', function() {
+        showOrHideBlock(this, uploadFile);
+    });
+
+    inputFildForDb.addEventListener('click', function() {
+        showOrHideBlock(this, fieldForFormDb);
+    });
+
+
+    function showOrHideBlock(e, item) {
+
+        if(e.checked == false) {
+            item.hide();
+        } else {
+            item.show();
+        }
+    }
+
+
+
     // upload files
     let uploadForm = document.forms.sendFile;
 
