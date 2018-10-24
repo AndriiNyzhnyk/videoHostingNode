@@ -1,10 +1,10 @@
 const db = require('./database');
 const streamVideo = require('./streamVideo');
 const security = require('./security');
-const securityKey = require('./security/securityKey');
 const dataDbControllers = require('./database/controller/dataDb');
 const sendEmail = require('./sendEmail');
 const upload = require('./upload');
+const func = require('./functions');
 
 
 module.exports = (app, urlencodedParser, jsonParser) => {
@@ -60,7 +60,7 @@ module.exports = (app, urlencodedParser, jsonParser) => {
     });
 
     app.get('/admin-control-panel', (req, res) => {
-        if(req.signedCookies.signedMonster === securityKey.myCookie) {
+        if(func.checkCookie(req)) {
             res.render('adminControlPanel.hbs');
         } else {
             res.redirect('/signInControlPanel');
@@ -76,7 +76,7 @@ module.exports = (app, urlencodedParser, jsonParser) => {
             res.cookie('signedMonster', 'welcomeAdmin',
                 {
                     signed: true,
-                    path: '/admin-control-panel',
+                    path: '/',
                     httpOnly: true
                 });
 
@@ -111,20 +111,49 @@ module.exports = (app, urlencodedParser, jsonParser) => {
 
     // routes for work database
     // getting list data
-    app.get("/api/films", dataDbControllers.films);
+    app.get("/api/films", (req, res) => {
+        if(func.checkCookie(req)) {
+            dataDbControllers.films(req, res);
+        } else {
+            res.status(401).send('Unauthorized');
+        }
+    });
 
 // get one user by id
-    app.get("/api/films/:id", dataDbControllers.getFilmId);
+    app.get("/api/films/:id", (req, res) => {
+        if(func.checkCookie(req)) {
+            dataDbControllers.getFilmId(req, res);
+        } else {
+            res.status(401).send('Unauthorized');
+        }
+    });
 
 // add a user to the database
-    app.post("/api/film", jsonParser, dataDbControllers.postAddFilm);
-
+    app.post("/api/film", jsonParser, (req, res) => {
+        if(func.checkCookie(req)) {
+            dataDbControllers.postAddFilm(req, res);
+        } else {
+            res.status(401).send('Unauthorized');
+        }
+    });
 // remove user by id
-    app.delete("/api/film/:id", dataDbControllers.deleteFilm);
+    app.delete("/api/film/:id", (req, res) => {
+        if(func.checkCookie(req)) {
+            dataDbControllers.deleteFilm(req, res);
+        } else {
+            res.status(401).send('Unauthorized');
+        }
+    });
 
 // change movie data
     app.put("/api/film", jsonParser, dataDbControllers.putFilm);
-
+    app.put("/api/film", jsonParser, (req, res) => {
+        if(func.checkCookie(req)) {
+            dataDbControllers.putFilm(req, res);
+        } else {
+            res.status(401).send('Unauthorized');
+        }
+    });
 
     // Обробник 404 помилки
     app.use((req, res, next) => {
