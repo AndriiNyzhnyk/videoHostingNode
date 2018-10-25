@@ -27,6 +27,15 @@ app.use(fileUpload());
 
 require('./routes.js')(app, urlencodedParser, jsonParser);
 
+process.on('unhandledRejection', (reason, p) => {
+    console.error('Unhandled Rejection at:', p, 'reason:', reason);
+    // application specific logging, throwing an error, or other logic here
+});
+
+process.on('uncaughtException', err => {
+    console.error(err, 'Uncaught Exception thrown');
+    process.exit(1);
+});
 
 app.listen(app.get('port'), () => {
     console.log( 'Express запущенний на http://localhost:' +

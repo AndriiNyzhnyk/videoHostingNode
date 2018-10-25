@@ -136,6 +136,7 @@ module.exports = (app, urlencodedParser, jsonParser) => {
             res.status(401).send('Unauthorized');
         }
     });
+
 // remove user by id
     app.delete("/api/film/:id", (req, res) => {
         if(func.checkCookie(req)) {
@@ -146,7 +147,6 @@ module.exports = (app, urlencodedParser, jsonParser) => {
     });
 
 // change movie data
-    app.put("/api/film", jsonParser, dataDbControllers.putFilm);
     app.put("/api/film", jsonParser, (req, res) => {
         if(func.checkCookie(req)) {
             dataDbControllers.putFilm(req, res);
